@@ -8,37 +8,12 @@
   --wave-cyan: #00f0ff;
   --wave-pink: #ff006e;
   --wave-amber: #ff9f1c;
-}
-
-body {
-  background-color: var(--sonic-black);
-  color: white;
-}
-  
-  /* Text Colors */
+  --wave-purple: #9d4edd;
+  --wave-gold: #ffd700;
   --text-primary: rgba(255, 255, 255, 0.95);
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-muted: rgba(255, 255, 255, 0.5);
-  --text-dim: rgba(255, 255, 255, 0.3);
-  
-  /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  
-  /* Animation Timing */
-  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-drift: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-pulse: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
 
 * {
   margin: 0;
@@ -51,19 +26,14 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  background: var(--sonic-black);
+  background-color: var(--sonic-black);
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ============================================
-   SONIC ATMOSPHERE - EQUALIZER PULSE
-   Screen edges that pulse like an equalizer
-   ============================================ */
-
+/* Equalizer pulse effect on screen edges */
 body::before {
   content: '';
   position: fixed;
@@ -80,35 +50,47 @@ body::before {
 @keyframes equalizerPulse {
   0%, 100% {
     border-color: transparent;
-    box-shadow: 
-      inset 0 0 30px rgba(0, 240, 255, 0.05),
-      0 0 30px rgba(0, 240, 255, 0.05);
+    box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.05), 0 0 30px rgba(0, 240, 255, 0.05);
   }
   25% {
     border-color: rgba(0, 240, 255, 0.1);
-    box-shadow: 
-      inset 0 0 40px rgba(0, 240, 255, 0.1),
-      0 0 40px rgba(0, 240, 255, 0.1);
+    box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.1), 0 0 40px rgba(0, 240, 255, 0.1);
   }
   50% {
     border-color: rgba(255, 0, 110, 0.1);
-    box-shadow: 
-      inset 0 0 50px rgba(255, 0, 110, 0.15),
-      0 0 50px rgba(255, 0, 110, 0.15);
+    box-shadow: inset 0 0 50px rgba(255, 0, 110, 0.15), 0 0 50px rgba(255, 0, 110, 0.15);
   }
   75% {
     border-color: rgba(255, 159, 28, 0.1);
-    box-shadow: 
-      inset 0 0 40px rgba(255, 159, 28, 0.1),
-      0 0 40px rgba(255, 159, 28, 0.1);
+    box-shadow: inset 0 0 40px rgba(255, 159, 28, 0.1), 0 0 40px rgba(255, 159, 28, 0.1);
   }
 }
 
-/* ============================================
-   WAVEFORM MOTIF
-   Decorative waveform running through UI
-   ============================================ */
+/* Text vibration for tense moments */
+.vibrate-text {
+  animation: textVibrate 0.15s ease-in-out infinite;
+}
 
+@keyframes textVibrate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  75% { transform: translateX(1px); }
+}
+
+/* Scanlines overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.15) 2px, rgba(0, 0, 0, 0.15) 4px);
+  opacity: 0.4;
+}
+
+/* Waveform border effect */
 .waveform-border {
   position: relative;
 }
@@ -120,15 +102,7 @@ body::before {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--wave-cyan) 20%,
-    var(--wave-pink) 40%,
-    var(--wave-amber) 60%,
-    var(--wave-purple) 80%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, var(--wave-cyan) 20%, var(--wave-pink) 40%, var(--wave-amber) 60%, var(--wave-purple) 80%, transparent 100%);
   background-size: 200% 100%;
   animation: waveformFlow 3s linear infinite;
   opacity: 0.6;
@@ -139,186 +113,7 @@ body::before {
   100% { background-position: -100% 0; }
 }
 
-/* ============================================
-   TEXT VIBRATION ANIMATION
-   For tense moments - text that "vibrates"
-   ============================================ */
-
-.vibrate-text {
-  animation: textVibrate 0.15s ease-in-out infinite;
-}
-
-@keyframes textVibrate {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-1px); }
-  75% { transform: translateX(1px); }
-}
-
-.vibrate-intense {
-  animation: textVibrateIntense 0.1s ease-in-out infinite;
-  text-shadow: 
-    0 0 10px rgba(255, 0, 110, 0.5),
-    0 0 20px rgba(255, 0, 110, 0.3);
-}
-
-@keyframes textVibrateIntense {
-  0%, 100% { transform: translate(0, 0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, -1px); }
-  80% { transform: translate(1px, 1px); }
-}
-
-/* ============================================
-   BRANCH-SPECIFIC ATMOSPHERES
-   ============================================ */
-
-/* ARCHIVES - Deep blue/cyan, slow pulsing, crystalline */
-.atmosphere-archives {
-  --branch-primary: #00f0ff;
-  --branch-secondary: #0066cc;
-  --branch-glow: rgba(0, 240, 255, 0.3);
-  --branch-bg: linear-gradient(180deg, #0a1628 0%, #0a0a0f 100%);
-}
-
-.atmosphere-archives::before {
-  animation: archivesPulse 6s ease-in-out infinite;
-}
-
-@keyframes archivesPulse {
-  0%, 100% {
-    box-shadow: 
-      inset 0 0 50px rgba(0, 240, 255, 0.1),
-      0 0 50px rgba(0, 240, 255, 0.05);
-  }
-  50% {
-    box-shadow: 
-      inset 0 0 80px rgba(0, 240, 255, 0.2),
-      0 0 80px rgba(0, 240, 255, 0.1);
-  }
-}
-
-/* DEBT COLLECTOR - Industrial amber, sharp edges, mechanical */
-.atmosphere-debt {
-  --branch-primary: #ff9f1c;
-  --branch-secondary: #cc7700;
-  --branch-glow: rgba(255, 159, 28, 0.3);
-  --branch-bg: linear-gradient(180deg, #1a1205 0%, #0a0a0f 100%);
-}
-
-.atmosphere-debt::before {
-  animation: debtPulse 2s steps(4) infinite;
-  border-style: dashed;
-}
-
-@keyframes debtPulse {
-  0%, 100% {
-    border-color: rgba(255, 159, 28, 0.3);
-    box-shadow: 
-      inset 0 0 30px rgba(255, 159, 28, 0.1),
-      0 0 30px rgba(255, 159, 28, 0.1);
-  }
-  50% {
-    border-color: rgba(255, 159, 28, 0.6);
-    box-shadow: 
-      inset 0 0 50px rgba(255, 159, 28, 0.2),
-      0 0 50px rgba(255, 159, 28, 0.15);
-  }
-}
-
-/* HUSH CHILD - Soft pink/white, gentle glow, ethereal */
-.atmosphere-hush {
-  --branch-primary: #ffb3d9;
-  --branch-secondary: #ff80c0;
-  --branch-glow: rgba(255, 179, 217, 0.3);
-  --branch-bg: linear-gradient(180deg, #1a0a14 0%, #0a0a0f 100%);
-}
-
-.atmosphere-hush::before {
-  animation: hushPulse 8s ease-in-out infinite;
-}
-
-@keyframes hushPulse {
-  0%, 100% {
-    border-color: rgba(255, 179, 217, 0.1);
-    box-shadow: 
-      inset 0 0 60px rgba(255, 179, 217, 0.1),
-      0 0 60px rgba(255, 179, 217, 0.05);
-  }
-  50% {
-    border-color: rgba(255, 179, 217, 0.2);
-    box-shadow: 
-      inset 0 0 100px rgba(255, 179, 217, 0.15),
-      0 0 100px rgba(255, 179, 217, 0.1);
-  }
-}
-
-/* CATHEDRAL - Purple/gold, religious geometry, ornate */
-.atmosphere-cathedral {
-  --branch-primary: #9d4edd;
-  --branch-secondary: #ffd700;
-  --branch-glow: rgba(157, 78, 221, 0.3);
-  --branch-bg: linear-gradient(180deg, #1a0a2e 0%, #0a0a0f 100%);
-}
-
-.atmosphere-cathedral::before {
-  animation: cathedralPulse 5s ease-in-out infinite;
-  border-width: 3px;
-  border-image: linear-gradient(
-    45deg,
-    rgba(157, 78, 221, 0.3),
-    rgba(255, 215, 0, 0.3),
-    rgba(157, 78, 221, 0.3)
-  ) 1;
-}
-
-@keyframes cathedralPulse {
-  0%, 100% {
-    box-shadow: 
-      inset 0 0 40px rgba(157, 78, 221, 0.15),
-      0 0 40px rgba(157, 78, 221, 0.1);
-  }
-  50% {
-    box-shadow: 
-      inset 0 0 70px rgba(255, 215, 0, 0.15),
-      0 0 70px rgba(255, 215, 0, 0.1);
-  }
-}
-
-/* WHITE NOISE - Glitch effects, static, broken aesthetics */
-.atmosphere-noise {
-  --branch-primary: #ffffff;
-  --branch-secondary: #888888;
-  --branch-glow: rgba(255, 255, 255, 0.3);
-  --branch-bg: #0a0a0a;
-}
-
-.atmosphere-noise::before {
-  animation: noisePulse 0.5s steps(2) infinite;
-  border-style: dotted;
-}
-
-@keyframes noisePulse {
-  0%, 100% {
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 
-      inset 0 0 20px rgba(255, 255, 255, 0.1),
-      0 0 20px rgba(255, 255, 255, 0.05);
-    transform: translate(0, 0);
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 
-      inset 0 0 40px rgba(255, 255, 255, 0.2),
-      0 0 40px rgba(255, 255, 255, 0.1);
-    transform: translate(1px, 1px);
-  }
-}
-
-/* ============================================
-   GLITCH EFFECTS FOR WHITE NOISE
-   ============================================ */
-
+/* Glitch effect for white noise branch */
 .glitch-text {
   position: relative;
 }
@@ -361,83 +156,29 @@ body::before {
   80% { clip-path: inset(5% 0 80% 0); transform: translate(2px, 0); }
 }
 
-/* ============================================
-   SCANLINES OVERLAY
-   ============================================ */
-
-.scanlines {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 999;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.15) 2px,
-    rgba(0, 0, 0, 0.15) 4px
-  );
-  opacity: 0.4;
-}
-
-/* ============================================
-   CHOICE ANIMATIONS
-   ============================================ */
-
+/* Choice animations */
 @keyframes choiceSlideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes choiceFadeOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
 }
 
-@keyframes choicePulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 20px 5px rgba(0, 240, 255, 0.2);
-  }
-}
+/* Branch-specific atmospheres */
+.atmosphere-archives { --branch-primary: #00f0ff; }
+.atmosphere-debt { --branch-primary: #ff9f1c; }
+.atmosphere-hush { --branch-primary: #ffb3d9; }
+.atmosphere-cathedral { --branch-primary: #9d4edd; }
+.atmosphere-noise { --branch-primary: #ffffff; }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
+/* Utility classes */
 .text-glow {
   text-shadow: 0 0 10px currentColor;
 }
 
-.text-glow-strong {
-  text-shadow: 
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 40px currentColor;
-}
-
-.border-glow {
-  box-shadow: 0 0 20px var(--branch-glow, rgba(0, 240, 255, 0.3));
-}
-
-/* Hide scrollbar but keep functionality */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -447,7 +188,6 @@ body::before {
   display: none;
 }
 
-/* Selection styling */
 ::selection {
   background: rgba(0, 240, 255, 0.3);
   color: white;
