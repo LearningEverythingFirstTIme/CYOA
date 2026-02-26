@@ -1,47 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+import type { Config } from 'tailwindcss';
 
-@layer base {
-  html {
-    @apply scroll-smooth;
-  }
-  
-  body {
-    @apply bg-[#050508] text-white antialiased;
-    font-family: var(--font-body);
-  }
-}
+const config: Config = {
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'sonic-black': '#050508',
+        'sonic-void': '#0a0a0f',
+        'wave-cyan': '#00f0ff',
+        'wave-pink': '#ff006e',
+        'wave-amber': '#ff9f1c',
+        'wave-purple': '#9d4edd',
+      },
+      fontFamily: {
+        heading: ['Orbitron', 'sans-serif'],
+        body: ['Crimson Text', 'serif'],
+        mono: ['Share Tech Mono', 'monospace'],
+        ui: ['Rajdhani', 'sans-serif'],
+      },
+      animation: {
+        'equalizer-pulse': 'equalizerPulse 4s ease-in-out infinite',
+        'text-vibrate': 'textVibrate 0.15s ease-in-out infinite',
+        'waveform-flow': 'waveformFlow 3s linear infinite',
+        'glitch-1': 'glitch-1 0.3s infinite linear alternate-reverse',
+        'glitch-2': 'glitch-2 0.3s infinite linear alternate-reverse',
+      },
+      keyframes: {
+        equalizerPulse: {
+          '0%, 100%': { 
+            borderColor: 'transparent',
+            boxShadow: 'inset 0 0 30px rgba(0, 240, 255, 0.05), 0 0 30px rgba(0, 240, 255, 0.05)'
+          },
+          '50%': { 
+            borderColor: 'rgba(255, 0, 110, 0.1)',
+            boxShadow: 'inset 0 0 50px rgba(255, 0, 110, 0.15), 0 0 50px rgba(255, 0, 110, 0.15)'
+          },
+        },
+        textVibrate: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-1px)' },
+          '75%': { transform: 'translateX(1px)' },
+        },
+        waveformFlow: {
+          '0%': { backgroundPosition: '100% 0' },
+          '100%': { backgroundPosition: '-100% 0' },
+        },
+        'glitch-1': {
+          '0%, 100%': { clipPath: 'inset(0 0 95% 0)', transform: 'translate(-2px, 0)' },
+          '50%': { clipPath: 'inset(50% 0 20% 0)', transform: 'translate(2px, 0)' },
+        },
+        'glitch-2': {
+          '0%, 100%': { clipPath: 'inset(95% 0 0 0)', transform: 'translate(2px, 0)' },
+          '50%': { clipPath: 'inset(20% 0 50% 0)', transform: 'translate(-2px, 0)' },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
 
-@layer components {
-  .story-container {
-    @apply max-w-3xl mx-auto px-4 py-8 min-h-screen;
-  }
-  
-  .location-header {
-    @apply font-mono text-xs tracking-[0.3em] uppercase mb-4 opacity-70;
-  }
-  
-  .story-content {
-    @apply text-lg leading-relaxed space-y-4;
-  }
-  
-  .choice-button {
-    @apply relative w-full text-left p-4 border border-white/20 rounded 
-           transition-all duration-300 hover:border-cyan-400/60 
-           hover:bg-white/5 group;
-  }
-  
-  .choice-label {
-    @apply font-mono text-xs tracking-wider text-pink-400 mb-1 block;
-  }
-  
-  .choice-text {
-    @apply text-white/90 group-hover:text-white transition-colors;
-  }
-  
-  .choice-flavor {
-    @apply text-xs text-white/40 mt-2 italic opacity-0 group-hover:opacity-100 
-           transition-opacity duration-300;
-  }
-}
+export default config;
