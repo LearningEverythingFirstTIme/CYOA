@@ -2,32 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   THE SILENCE BUREAU - GLOBAL STYLES
-   Sonic Economy Visual Language
-   ============================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
-
 :root {
-  /* Core Typography */
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Crimson Text', serif;
-  --font-mono: 'Share Tech Mono', monospace;
-  --font-ui: 'Rajdhani', sans-serif;
-  
-  /* Sonic Color Palette - Base */
   --sonic-black: #050508;
   --sonic-void: #0a0a0f;
-  --sonic-panel: rgba(10, 10, 15, 0.9);
-  
-  /* Waveform Colors */
   --wave-cyan: #00f0ff;
   --wave-pink: #ff006e;
   --wave-amber: #ff9f1c;
-  --wave-purple: #9d4edd;
-  --wave-gold: #ffd700;
-  --wave-white: #f8f8ff;
+}
+
+body {
+  background-color: var(--sonic-black);
+  color: white;
+}
   
   /* Text Colors */
   --text-primary: rgba(255, 255, 255, 0.95);
