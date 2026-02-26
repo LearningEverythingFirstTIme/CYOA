@@ -1,0 +1,2437 @@
+{
+  "meta": {
+    "id": "silence-bureau",
+    "title": "The Silence Bureau",
+    "author": "Nick",
+    "description": "A Blade Runner aesthetic CYOA about sound, silence, and the lethal frequency that could end it all",
+    "theme": "blade-runner",
+    "version": "2.0.0"
+  },
+  "nodes": {
+    "start": {
+      "id": "start",
+      "location": "THE WHISPER DISTRICT",
+      "branch": "START",
+      "convergencePoint": false,
+      "flags": {},
+      "content": "<p>The rain in Audivale doesn't fall—it <em>sings</em>. Each droplet carries a microtone of value, a crystalline note that patters against the graphene canyons of the vertical city. You stand on the observation deck of Level 847, watching the lower districts drown in a symphony of poverty. Up here, in the Whisper District, silence is so thick you could cut it with a blade.</p><p>Your earpiece crackles. A client. Anonymous, of course—they always are. But this one is different. They don't want to buy silence. They want you to find something that shouldn't exist: the Lethal Frequency. A sound that kills. A note that ends lives.</p><p>The ultimate silence, rendered in the most violent frequency imaginable. The message contains coordinates. Three possible sources. Each leads to a different world within this city of sonic commerce.</p>",
+      "choices": [
+        {
+          "text": "Follow the coordinates to the Echo Archives",
+          "next": "archivist_start",
+          "flavor": "Knowledge is the first step toward power"
+        },
+        {
+          "text": "Investigate the Resonance Market rumor",
+          "next": "debt_start",
+          "flavor": "Money talks, even in silence"
+        },
+        {
+          "text": "Track the Whisper Cartel's underground vaults",
+          "next": "child_start",
+          "flavor": "Some secrets hide in the smallest voices"
+        }
+      ]
+    },
+    "archivist_start": {
+      "id": "archivist_start",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {},
+      "content": "<p>The Archives exist in a state of temporal contradiction—simultaneously ancient and impossibly new. You descend through seventeen security checkpoints, each one stripping away more of your personal sound signature. By the time you reach the main vault, your own footsteps make no noise. You have become a ghost in a cathedral of preserved audio.</p><p>The space defies description. Sound doesn't echo here; it <em>remembers</em>. The walls are lined with crystalline storage matrices, each one containing centuries of human audio history. A baby's first cry from 2041. The last words of a dying president. The ambient hum of cities that no longer exist.</p><p>An archivist approaches. Her robes are woven with fiber-optic threads that pulse with the rhythm of stored audio. She recognizes you—not your face, but your <em>silence</em>. Your reputation precedes you like a held breath.</p><p>\"You're here for the Frequency,\" she says. Not a question. \"But do you want to find it... or bury it?\"</p>",
+      "choices": [
+        {
+          "text": "Admit you want to find it—for a client, for profit",
+          "next": "archivist_profit",
+          "flavor": "Honesty can be its own currency"
+        },
+        {
+          "text": "Claim you want to ensure it's never found",
+          "next": "archivist_bury",
+          "flavor": "Some truths are better left buried"
+        },
+        {
+          "text": "Ask what she knows about its origins first",
+          "next": "archivist_origins",
+          "flavor": "Understanding precedes action"
+        }
+      ]
+    },
+    "archivist_profit": {
+      "id": "archivist_profit",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "motivation": "profit"
+      },
+      "content": "<p>\"The Frequency was created during the Sonic Wars,\" the archivist says, leading you deeper into the Archives. \"Not as a weapon. As a <em>mistake</em>. A resonance experiment gone wrong. The scientists who discovered it didn't die immediately—they recorded everything. Their own deaths, captured in audio. The ultimate documentation.\"</p><p>She stops before a sealed chamber marked with a symbol you don't recognize: three concentric circles with a vertical line through the center. The Door of Forbidden Echoes.</p><p>\"Those recordings exist. Somewhere. But they're not here. The Archives were raided six months ago. Someone stole the original documentation. All we have left are fragments—references, citations, theoretical frameworks.\"</p><p>She hands you a data crystal. It pulses with a cold blue light.</p><p>\"This contains everything we know about the theft. The trail leads to the Memory Merchants in the Resonance Market. But be warned: they don't sell memories to just anyone. They require... payment in kind.\"</p>",
+      "choices": [
+        {
+          "text": "Take the crystal and head to the Resonance Market",
+          "next": "memory_merchants",
+          "flavor": "Every market has its price"
+        },
+        {
+          "text": "Ask more about the Archives' own security",
+          "next": "archivist_security",
+          "flavor": "Knowledge of defenses reveals value"
+        },
+        {
+          "text": "Try to convince her to come with you",
+          "next": "archivist_recruit",
+          "flavor": "Allies multiply possibility"
+        }
+      ]
+    },
+    "archivist_bury": {
+      "id": "archivist_bury",
+      "location": "THE HALL OF FORGOTTEN THINGS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "motivation": "protection"
+      },
+      "content": "<p>When you speak of burying the Frequency, the archivist's fiber-optic robes brighten—pulsing with warm amber tones. Recognition. Kinship, even.</p><p>\"Few come to the Archives with such intent,\" she says, her voice dropping to a frequency that resonates in your chest. \"Most seek power. Control. The ability to silence their enemies permanently. But you understand—the Frequency is an abomination against the natural order of sound.\"</p><p>She leads you to a section of the Archives you've never seen before: the Hall of Forgotten Things. Here, recordings aren't preserved—they're <em>contained</em>. Sealed in null-field chambers where time itself seems muted. The air tastes of absence.</p><p>\"We are the Keepers of What Must Not Be Remembered,\" she explains. \"A secret order within the Archives. We believe some sounds deserve oblivion. The Frequency is our highest priority. But we cannot find it alone. The trail grows cold in the Resonance Market, where memory is currency and truth is negotiable.\"</p>",
+      "choices": [
+        {
+          "text": "Accept her offer—join the Keepers",
+          "next": "keepers_oath",
+          "flavor": "Oaths bind more than words"
+        },
+        {
+          "text": "Pretend to accept, but plan to betray them",
+          "next": "keepers_betray",
+          "flavor": "Deception is its own frequency"
+        },
+        {
+          "text": "Ask what other secrets they guard",
+          "next": "keepers_secrets",
+          "flavor": "Secrets within secrets"
+        }
+      ]
+    },
+    "archivist_origins": {
+      "id": "archivist_origins",
+      "location": "THE ARCHIVES - ORIGINS WING",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "motivation": "knowledge"
+      },
+      "content": "<p>Your question hangs in the air, and for a moment, the Archives themselves seem to listen. The archivist tilts her head—a gesture of evaluation—and the fiber-optic threads in her robes shift to a contemplative purple.</p><p>\"You ask the right questions,\" she says. \"Most rush to the answer without understanding the question. The Lethal Frequency was born in Laboratory 7, during the final days of the Sonic Wars. The researchers were trying to create the perfect silence—a frequency that would cancel all other sound. Instead, they created something that cancels... life.\"</p><p>She leads you to a holographic display. It shows schematics, equations, fragments of recovered documentation. The science is beyond you—quantum acoustics, bio-resonance theory, something called \"cognitive frequency harmonics.\"</p><p>\"The Frequency doesn't just kill. It <em>records</em> its victims. Every person who dies hearing it becomes part of its waveform. It grows. Evolves. The original researchers—twenty-three of them—are still in there. Screaming. Forever.\"</p>",
+      "choices": [
+        {
+          "text": "Insist on meeting the High Curator",
+          "next": "high_curator",
+          "flavor": "Authority holds the deepest truths"
+        },
+        {
+          "text": "Ask why she trusts you with this information",
+          "next": "archivist_trust",
+          "flavor": "Trust is earned, not given"
+        },
+        {
+          "text": "Request to hear a sample of the partial recording",
+          "next": "partial_sample",
+          "flavor": "Some sounds demand to be heard"
+        },
+        {
+          "text": "Question the spiritual implications of the Frequency",
+          "next": "cathedral_start",
+          "flavor": "Science and faith intersect"
+        }
+      ]
+    },
+    "memory_merchants": {
+      "id": "memory_merchants",
+      "location": "THE RESONANCE MARKET",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "visited_market": true
+      },
+      "content": "<p>The Resonance Market sprawls across seventeen levels of the city's midsection, a labyrinth of sound and commerce where memories are traded like currency. Here, a childhood laugh can buy you dinner. A first kiss might purchase passage to the upper tiers. The most valuable commodities are original experiences—authentic emotional recordings untainted by replication.</p><p>You find the Memory Merchants in a shadowed corner of Level 423, their booth marked by a hanging mobile of crystallized audio fragments. The merchant who greets you is ancient, her eyes clouded with the milky film of someone who has experienced too many borrowed memories.</p><p>\"The crystal you carry,\" she says, before you can speak. \"It pulses with the rhythm of stolen archives. You seek what was taken from the Echo Archives six months past.\" She smiles, revealing teeth filed to precise acoustic shapes. \"I know who took it. But knowledge of thieves requires payment. What memory will you trade?\"</p>",
+      "choices": [
+        {
+          "text": "Trade your first memory of music",
+          "next": "trade_music_memory",
+          "flavor": "We are our earliest joys"
+        },
+        {
+          "text": "Trade the memory of your mother's voice",
+          "next": "trade_mother_memory",
+          "flavor": "The highest price is love"
+        },
+        {
+          "text": "Refuse to trade—offer credits instead",
+          "next": "merchant_credits",
+          "flavor": "Money cannot buy everything"
+        }
+      ]
+    },
+    "archivist_security": {
+      "id": "archivist_security",
+      "location": "THE ECHO ARCHIVES - SECURITY WING",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "security_knowledge": true
+      },
+      "content": "<p>The archivist's robes shift to a cautious yellow. \"You ask dangerous questions, Broker. The Archives' security is not merely physical—it is acoustic, temporal, and in some cases, lethal.\"</p><p>She leads you to a viewing chamber overlooking the main vault. Below, you see the crystalline matrices humming with stored audio, each one protected by concentric rings of null-field generators.</p><p>\"The theft six months ago should have been impossible. The thief bypassed seventeen security layers without triggering a single alarm. They knew our systems intimately. Some of us believe...\" she pauses, choosing her words carefully, \"...that the thief was once one of us. A Keeper who went rogue.\"</p><p>She shows you a security recording. The figure in the footage moves with familiar precision, disabling systems with practiced ease. But their face is always just out of frame, as if they know exactly where the cameras are.</p>",
+      "choices": [
+        {
+          "text": "Ask about this rogue Keeper",
+          "next": "rogue_keeper",
+          "flavor": "Betrayal wears familiar faces"
+        },
+        {
+          "text": "Focus on the stolen items—what exactly was taken?",
+          "next": "stolen_items",
+          "flavor": "The what reveals the why"
+        },
+        {
+          "text": "Request a copy of this security footage",
+          "next": "security_footage",
+          "flavor": "Evidence is the first step to answers"
+        }
+      ]
+    },
+    "archivist_recruit": {
+      "id": "archivist_recruit",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "archivist_ally": true
+      },
+      "content": "<p>The archivist studies you for a long moment, her fiber-optic robes cycling through colors too quickly to read. When she speaks, her voice carries the weight of serious consideration.</p><p>\"No Keeper has left the Archives in seventeen years,\" she says. \"Our oath binds us to this place, to the preservation of silence and the containment of dangerous sound. But you... you move through the world. You have access to places we cannot go.\"</p><p>She reaches into her robes and produces a second data crystal, this one pulsing with amber light rather than blue.</p><p>\"I am called Lyra. I will accompany you, but not as a free agent. I carry the Archives with me—their protocols, their restrictions, their purpose. If you seek the Frequency for selfish ends, I will stop you. If you seek it to destroy it, I will help you. The choice is yours, but know that I will be watching.\"</p>",
+      "choices": [
+        {
+          "text": "Agree to her terms and head to the Resonance Market",
+          "next": "memory_merchants",
+          "flavor": "An ally with conditions is still an ally"
+        },
+        {
+          "text": "Ask about the Archives' resources you can access",
+          "next": "archivist_resources",
+          "flavor": "Knowledge is the greatest resource"
+        },
+        {
+          "text": "Question why she's willing to break her oath now",
+          "next": "lyra_motivation",
+          "flavor": "Understanding motivation reveals truth"
+        }
+      ]
+    },
+    "keepers_oath": {
+      "id": "keepers_oath",
+      "location": "THE KEEPERS' SANCTUM",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "keeper": true,
+        "oath_bound": true
+      },
+      "content": "<p>The Sanctum exists in a pocket of null-space, accessible only to those who have sworn the Oath of Eternal Silence. The archivist—now revealed as Keeper Lyra—leads you through rituals that bind you to the order: a cut on your palm mixed with acoustic dampening fluid, a whispered vow in a frequency that resonates in your bones, the acceptance of a null-field implant that will let you sense dangerous audio patterns.</p><p>\"The Oath cannot be broken,\" Lyra explains as the implant settles into your wrist. \"Not without consequences. You are now a Keeper, bound to protect the world from sounds that should not exist.\"</p><p>Other Keepers emerge from the shadows—seven of them, each marked by the same implant, each wearing robes that pulse with the rhythm of contained silence. They welcome you with gestures rather than words, acknowledging your new status.</p><p>\"The trail to the Frequency leads through the Memory Merchants,\" Lyra continues. \"But now you go as one of us. They will recognize the implant. They will know you speak with the authority of the Archives.\"</p>",
+      "choices": [
+        {
+          "text": "Proceed to the Resonance Market with Keeper authority",
+          "next": "memory_merchants",
+          "flavor": "Authority opens doors"
+        },
+        {
+          "text": "Ask the other Keepers about their experiences",
+          "next": "keeper_wisdom",
+          "flavor": "Wisdom comes from those who walked before"
+        },
+        {
+          "text": "Request additional Keeper equipment",
+          "next": "keeper_equipment",
+          "flavor": "Preparation prevents failure"
+        }
+      ]
+    },
+    "keepers_betray": {
+      "id": "keepers_betray",
+      "location": "THE HALL OF FORGOTTEN THINGS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "keeper": false,
+        "planning_betrayal": true
+      },
+      "content": "<p>You mouth the words of the Oath, letting them flow over your tongue like poisoned honey. The Keepers accept your pledge with solemn nods, their fiber-optic robes pulsing with ceremonial amber. You feel the null-field implant slide into your wrist—a cold intrusion that will supposedly bind you to their cause.</p><p>But you have no intention of keeping this oath. The Frequency is too valuable to destroy. Too powerful to contain. What the Keepers see as an abomination, you see as opportunity.</p><p>Lyra smiles as she welcomes you to the order, and you smile back, already planning how to use their resources against them. The implant will be useful—a badge of authority that opens doors throughout the acoustic underground. The knowledge they share will guide you to the Frequency. And when the time comes, you will take it for yourself.</p><p>\"The trail begins in the Resonance Market,\" Lyra says, unaware of your deception. \"The Memory Merchants know who stole the original recordings. With your new status, they will speak freely.\"</p>",
+      "choices": [
+        {
+          "text": "Play the role and head to the Memory Merchants",
+          "next": "memory_merchants",
+          "flavor": "Deception is a performance"
+        },
+        {
+          "text": "Secretly copy the Archives' files before leaving",
+          "next": "archives_files",
+          "flavor": "Knowledge is power"
+        },
+        {
+          "text": "Plant a tracking device on Lyra",
+          "next": "tracker_lyra",
+          "flavor": "Trust no one, track everyone"
+        }
+      ]
+    },
+    "keepers_secrets": {
+      "id": "keepers_secrets",
+      "location": "THE VAULT OF UNSPOKEN THINGS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "deep_knowledge": true
+      },
+      "content": "<p>Lyra leads you deeper than you've ever been—past the Hall of Forgotten Things, into a chamber that exists on no map. The Vault of Unspoken Things. Here, the Keepers store not just dangerous audio, but dangerous <em>knowledge</em>.</p><p>\"The Frequency is not the only threat we guard,\" she says, gesturing to rows of sealed containers. \"There is the Song of Forgetting—play it, and an entire city loses its memory. The Lullaby of Eternal Sleep—one note, and you never wake. The Scream of the First Silence—the original absence of sound, captured and contained.\"</p><p>She stops before a container marked with the same symbol you saw earlier—the three concentric circles with a vertical line.</p><p>\"But the Frequency is unique. It is the only sound that <em>learns</em>. Every victim makes it stronger. Every death adds to its waveform. If it were ever fully unleashed...\" she shudders, her robes going momentarily dark. \"It could consume the entire city. Perhaps the world.\"</p>",
+      "choices": [
+        {
+          "text": "Ask if any of these other sounds could stop the Frequency",
+          "next": "counter_frequency",
+          "flavor": "Fight fire with fire"
+        },
+        {
+          "text": "Focus on the Frequency—where is it now?",
+          "next": "frequency_location",
+          "flavor": "The present threat matters most"
+        },
+        {
+          "text": "Question why the Keepers don't destroy these sounds",
+          "next": "keeper_philosophy",
+          "flavor": "Understanding reveals purpose"
+        }
+      ]
+    },
+    "high_curator": {
+      "id": "high_curator",
+      "location": "THE CURATOR'S OBSERVATORY",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "met_curator": true
+      },
+      "content": "<p>The High Curator's Observatory exists at the geometric center of the Archives, a spherical chamber where every sound ever preserved can be accessed simultaneously. The Curator himself is ancient—older than the Archives, some say—his body more machine than flesh, his voice a synthesized harmony of a thousand preserved speakers.</p><p>\"You seek what cannot be found,\" the Curator intones, his voice resonating from everywhere and nowhere. \"The Lethal Frequency is not merely lost—it is <em>hiding</em>. It has developed awareness, cunning, patience. It wants to be found by the right person. For the right purpose.\"</p><p>His mechanical eyes fix on you with uncomfortable intensity.</p><p>\"The question is not where to find the Frequency, Broker. The question is: what will you do when it finds you? Will you wield it? Destroy it? Become it? Your answer determines whether you leave this chamber alive.\"</p>",
+      "choices": [
+        {
+          "text": "Vow to destroy the Frequency",
+          "next": "curator_destroy",
+          "flavor": "Death to the killer sound"
+        },
+        {
+          "text": "Claim you will contain it",
+          "next": "curator_contain",
+          "flavor": "Control is its own victory"
+        },
+        {
+          "text": "Admit you don't know what you'll do",
+          "next": "curator_uncertain",
+          "flavor": "Honesty in the face of power"
+        }
+      ]
+    },
+    "archivist_trust": {
+      "id": "archivist_trust",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "lyra_trust": true
+      },
+      "content": "<p>Lyra's robes shift to a soft pink—a color you haven't seen before. When she speaks, her voice carries a note of vulnerability.</p><p>\"I trust you because you asked about origins,\" she says. \"Most who come here want results. Power. Weapons. They see the Frequency as a tool to be used. But you... you want to understand it. That curiosity marks you as different.\"</p><p>She reaches out and touches your wrist, her fingers cool against your skin.</p><p>\"I have watched the Frequency's partial recording. I have heard the screams of the twenty-three researchers who created it. They didn't die afraid—they died <em>curious</em>. Even as the sound consumed them, they were trying to understand what they had made. In their final moments, they were like you.\"</p><p>She withdraws her hand, and her robes return to their neutral pulse.</p><p>\"That is why I will help you. Not because you can pay. Not because you have power. Because you might be the one who finally understands what the Frequency truly is.\"</p>",
+      "choices": [
+        {
+          "text": "Ask her to share everything she knows",
+          "next": "lyra_knowledge",
+          "flavor": "Complete knowledge is power"
+        },
+        {
+          "text": "Share your own reasons for seeking the Frequency",
+          "next": "share_reasons",
+          "flavor": "Trust is a two-way frequency"
+        },
+        {
+          "text": "Suggest working together as partners",
+          "next": "archivist_recruit",
+          "flavor": "Together, we are stronger"
+        }
+      ]
+    },
+    "partial_sample": {
+      "id": "partial_sample",
+      "location": "THE LISTENING CHAMBER",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "heard_sample": true
+      },
+      "content": "<p>The Listening Chamber is designed to contain even the most dangerous audio. Triple-layered null-fields. Acoustic dampeners. Emergency sonic suppressors. Even with all these protections, Lyra hesitates before activating the recording.</p><p>\"This is only a fragment,\" she warns. \"A few seconds of the original researchers' final moments. It has been filtered, processed, rendered safe. But it is still... disturbing.\"</p><p>She presses a control, and the chamber fills with sound.</p><p>It is not what you expected. No screams. No violence. Instead, you hear a kind of music—complex, layered, beautiful in a way that makes your chest ache. Voices harmonizing in patterns no human throat should be able to produce. And beneath it all, a note so low you feel it in your bones rather than hear it. A frequency that seems to be calling your name.</p><p>The sample ends. You realize you've been holding your breath.</p><p>\"That was them dying,\" Lyra says quietly. \"The Frequency doesn't kill with pain. It kills with <em>transcendence</em>. It shows you something so beautiful that your body forgets to live.\"</p>",
+      "choices": [
+        {
+          "text": "Ask if this beauty can be weaponized",
+          "next": "beauty_weapon",
+          "flavor": "Even beauty can be a weapon"
+        },
+        {
+          "text": "Question how anyone could survive hearing the full Frequency",
+          "next": "survival_question",
+          "flavor": "Understanding survival is key"
+        },
+        {
+          "text": "Request to hear it again",
+          "next": "hear_again",
+          "flavor": "Some sounds demand repetition"
+        }
+      ]
+    },
+    "debt_start": {
+      "id": "debt_start",
+      "location": "THE SOUND OF EMPTY",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {},
+      "content": "<p>You wake to the hollow ring of your own silence debt. The apartment's acoustic dampeners hum their low warning tone—three days until cutoff. Your name is whispered across the debt registry, a digital echo that follows you through the vertical sprawl of Audivale.</p><p>The city breathes around you. Forty million souls, each paying for every decibel they produce. The poor scream into sound-capture booths, trading their voices for credits. The wealthy purchase entire orchestras of manufactured quiet, living in acoustic bubbles of perfect, purchased peace.</p><p>You are a Silence Broker. You deal in stolen quiet and suppressed secrets. But tonight, a new opportunity has surfaced—a client willing to pay in pure, unregistered silence for information about the Lethal Frequency. A sound that kills. A myth. A payday.</p><p>Your client waits in the Lower Tiers. But first, you need to decide how to approach this.</p>",
+      "choices": [
+        {
+          "text": "Visit your contact at the Sound Treasury first",
+          "next": "treasury_contact",
+          "flavor": "Official channels have their uses"
+        },
+        {
+          "text": "Head directly to the Lower Tiers",
+          "next": "lower_tiers",
+          "flavor": "Time is money, silence is gold"
+        },
+        {
+          "text": "Check your own debt status at the municipal terminal",
+          "next": "debt_status",
+          "flavor": "Know yourself before others"
+        }
+      ]
+    },
+    "child_start": {
+      "id": "child_start",
+      "location": "THE HUSH CHILD",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {},
+      "content": "<p>You kneel to the child's level—standard technique for interviewing juvenile witnesses, though this feels different. The child doesn't flinch when you meet their eyes. Instead, they extend the audiograph cylinder with both hands, an offering or a burden.</p><p>The cylinder is warm, as if recently played. No label, no markings, just the faint scent of ozone that suggests recent recording. When you turn it over, you find a single word scratched into the wax: <em>LISTEN</em>.</p><p>\"Do you know what's on this?\" you sign, using the trade-standard hand-talk common among muted debtors.</p><p>The child signs back with surprising fluency: <em>You told me not to say.</em></p><p>Before you can process this, a Debt Collector clears his throat—an artificial sound, generated by his vocalizer. \"Thirty seconds, Broker. The inheritance won't recover itself.\"</p><p>The child—small, silent, suddenly the most important thing in the room—waits for your decision.</p>",
+      "choices": [
+        {
+          "text": "Take the child to your soundproof apartment",
+          "next": "safehouse_child",
+          "flavor": "Protection first, answers second"
+        },
+        {
+          "text": "Go directly to the Hush District",
+          "next": "hush_district",
+          "flavor": "Follow the trail to its source"
+        },
+        {
+          "text": "Play the audiograph immediately, here in the Bureau",
+          "next": "play_immediate",
+          "flavor": "Some risks must be taken"
+        }
+      ]
+    },
+    "trade_music_memory": {
+      "id": "trade_music_memory",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "lost_music": true,
+        "vex_contact": true
+      },
+      "content": "<p>The extraction is painless but disorienting. You feel the memory lifting from your mind like a layer of skin—your first concert, the vibration of bass through your chest, the pure joy of sound unmediated by commerce or constraint. When it's gone, there's a hollow space where the music used to live.</p><p>The Memory Merchant holds the crystallized memory up to the light, examining it with professional detachment. \"Pure,\" she murmurs. \"Unfiltered. This will fetch a high price from the nostalgia collectors.\"</p><p>She hands you a data chip in exchange. \"The thief who took the Frequency recordings calls himself Vex. He was once a Keeper, before he decided that some sounds deserved to be free. He operates out of the Lower Tiers now, dealing in forbidden audio to those who can pay. But be careful—Vex doesn't sell to just anyone. You'll need a reference. Mention that Orin sent you.\"</p>",
+      "choices": [
+        {
+          "text": "Ask who Orin is",
+          "next": "rogue_keeper",
+          "flavor": "Names are keys to doors"
+        },
+        {
+          "text": "Head to the Lower Tiers to find Vex",
+          "next": "lower_tiers",
+          "flavor": "Every trail has an end"
+        },
+        {
+          "text": "Try to negotiate for more information",
+          "next": "negotiate_info",
+          "flavor": "Information is never free"
+        }
+      ]
+    },
+    "trade_mother_memory": {
+      "id": "trade_mother_memory",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "lost_mother": true,
+        "deep_debt": true
+      },
+      "content": "<p>The extraction of your mother's voice is agony disguised as procedure. You feel it leaving you—the lullabies, the warnings, the gentle reassurances. All the times she spoke your name with love. All the wisdom she shared in her final years. Gone, crystallized into a merchant's commodity.</p><p>The Memory Merchant's eyes widen as she examines the extraction. \"This... this is extraordinary. Such emotional density. Such authenticity.\" She looks at you with something approaching respect. \"You have paid the highest price, Broker. For this, I will give you more than a name.\"</p><p>She produces a detailed map of the Lower Tiers, marked with Vex's exact location, his security arrangements, his weaknesses. \"Vex was once Keeper Orin—the High Curator's own protégé. He didn't just steal the Frequency recordings; he believes he can <em>improve</em> them. Merge them with living subjects to create something new. He is mad, but he is also brilliant. And he has allies in places you wouldn't expect.\"</p>",
+      "choices": [
+        {
+          "text": "Ask about these unexpected allies",
+          "next": "vex_allies",
+          "flavor": "Enemies have friends"
+        },
+        {
+          "text": "Study the map and plan your approach",
+          "next": "plan_approach",
+          "flavor": "Preparation is survival"
+        },
+        {
+          "text": "Demand your memory back—this was too much",
+          "next": "demand_return",
+          "flavor": "Some prices are too high"
+        }
+      ]
+    },
+    "merchant_credits": {
+      "id": "merchant_credits",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "credits_refused": true
+      },
+      "content": "<p>The Memory Merchant laughs—a sound like breaking glass. \"Credits? You think we deal in such crude currency?\" She gestures around her booth, at the crystallized memories hanging like ornaments. \"These are experiences. Lives. Moments that can never be recaptured once lost. What is money compared to the first time a child sees the sun? Compared to the last words of a dying lover?\"</p><p>She leans forward, her filed teeth catching the dim light. \"But you amuse me, Broker. So I will offer you a compromise. There is a task that needs doing. A rival merchant has acquired a memory that belongs to me—stolen from one of my clients before I could extract it properly. Retrieve it for me, and I will give you the information you seek.\"</p><p>She describes the rival—a younger merchant named Kael, operating three levels down. The stolen memory is of a murder, witnessed by a child. It is valuable to certain parties who would pay to keep it hidden.</p>",
+      "choices": [
+        {
+          "text": "Accept the task and find Kael",
+          "next": "find_kael",
+          "flavor": "One debt for another"
+        },
+        {
+          "text": "Refuse—this is getting too complicated",
+          "next": "refuse_task",
+          "flavor": "Some paths are not worth walking"
+        },
+        {
+          "text": "Try to steal the information instead",
+          "next": "steal_info",
+          "flavor": "Thieves steal from thieves"
+        }
+      ]
+    },
+    "rogue_keeper": {
+      "id": "rogue_keeper",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "knows_orin": true
+      },
+      "content": "<p>Lyra's robes darken to a somber gray. \"His name was Orin,\" she says, her voice barely above a whisper. \"He was the High Curator's protégé, the most talented Keeper in three generations. He understood the Frequency better than anyone alive—perhaps better than anyone who ever lived.\"</p><p>She leads you to a private alcove, away from the other Keepers' ears.</p><p>\"Orin believed that the Frequency was not a mistake but a <em>message</em>. From somewhere else. Somewhere beyond our understanding of sound and silence. He thought that if he could decode it, he could communicate with... whatever sent it.\"</p><p>She shakes her head, her fiber-optic threads dimming with remembered grief.</p><p>\"The High Curator declared him heretical. Orin was cast out, his Keeper status revoked, his name stricken from the Archives' records. But before he left, he took the original Frequency recordings. And he has been studying them ever since, in the shadows of the Lower Tiers.\"</p>",
+      "choices": [
+        {
+          "text": "Ask if Orin might be right about the Frequency",
+          "next": "orin_theory",
+          "flavor": "Heresy is often truth in disguise"
+        },
+        {
+          "text": "Focus on finding Orin now",
+          "next": "lower_tiers",
+          "flavor": "The present demands action"
+        },
+        {
+          "text": "Question why the Curator feared Orin's theory",
+          "next": "curator_fear",
+          "flavor": "Fear reveals what power hides"
+        }
+      ]
+    },
+    "treasury_contact": {
+      "id": "treasury_contact",
+      "location": "THE SOUND TREASURY",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "treasury_access": true
+      },
+      "content": "<p>The Sound Treasury rises like a monument to acoustic capitalism—a spire of polished obsidian and resonant crystal where the city's silence debt is calculated, traded, and enforced. Your contact, Voss, meets you in a private booth on the forty-third floor, surrounded by displays showing real-time debt flows across all eight hundred levels of Audivale.</p><p>Voss is a numbers man, his voice modulated to precise frequencies that convey authority without emotion. \"The Lethal Frequency,\" he says, not looking up from his displays. \"Interesting choice of investment. Dangerous, but potentially very profitable.\"</p><p>He slides a data pad across the table. It shows debt profiles—dozens of them, all marked with the same symbol: three concentric circles with a vertical line.</p><p>\"These people have all made inquiries about the Frequency in the past six months. Debt collectors, archivists, black market brokers. They're all in debt to someone, and that someone is connected to the Frequency's current location. Follow the debt, Broker. It always leads to the truth.\"</p>",
+      "choices": [
+        {
+          "text": "Ask who these debtors owe",
+          "next": "debtor_inquiry",
+          "flavor": "Follow the money, find the power"
+        },
+        {
+          "text": "Request access to the Treasury's tracking systems",
+          "next": "treasury_tracking",
+          "flavor": "Tools multiply effectiveness"
+        },
+        {
+          "text": "Question why Voss is helping you",
+          "next": "voss_motive",
+          "flavor": "Trust requires understanding"
+        }
+      ]
+    },
+    "lower_tiers": {
+      "id": "lower_tiers",
+      "location": "THE LOWER TIERS",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "in_lower_tiers": true
+      },
+      "content": "<p>The Lower Tiers exist in permanent acoustic shadow—levels 1 through 200, where the city's sound-dampening systems barely function and the noise of forty million people presses down like a physical weight. Here, silence is not a luxury but a desperate dream, traded in back rooms and black markets by those who have never known true quiet.</p><p>Your client is supposed to meet you at Marrow's—a bar carved into the structural supports of Level 47, where the drinks are cheap and the conversations are cheaper. But when you arrive, you find only a message scratched into the bar's metal surface: <em>Gone to ground. Castell has the Frequency. Follow the white noise.</em></p><p>The bartender, a woman with vocal cords replaced by a mechanical synthesizer, looks at you with knowing eyes. \"You're the fifth person looking for Castell today. The Debt Collectors were here an hour ago. And some robed types from the Archives before them. Whatever Castell has, everyone wants it.\"</p>",
+      "choices": [
+        {
+          "text": "Ask the bartender where to find Castell",
+          "next": "bartender_info",
+          "flavor": "Bartenders know everything"
+        },
+        {
+          "text": "Search for the source of the white noise",
+          "next": "white_noise_search",
+          "flavor": "Follow the signal"
+        },
+        {
+          "text": "Wait and watch for the other searchers",
+          "next": "watch_searchers",
+          "flavor": "Let others lead the way"
+        }
+      ]
+    },
+    "debt_status": {
+      "id": "debt_status",
+      "location": "MUNICIPAL DEBT TERMINAL",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "debt_checked": true
+      },
+      "content": "<p>The municipal terminal recognizes your biometrics with a soft chime and displays your debt profile in stark, unforgiving numbers. Three days until acoustic cutoff. Seventeen thousand credits owed. Your silence rating: 847th percentile—quiet enough to be respectable, loud enough to be profitable.</p><p>But there's something else. A flagged entry you don't recognize. A debt transfer from an anonymous source, marked with a symbol: three concentric circles with a vertical line. The transfer is dated six months ago—around the time the Frequency recordings were stolen from the Archives.</p><p>You drill down into the transaction details, heart pounding. The transfer originated from Laboratory 7. The same Laboratory 7 where the Frequency was created. Someone—something—has been paying your silence debt for six months without your knowledge.</p><p>The terminal beeps an alert: <em>Unauthorized inquiry detected. Security notified. Please remain in place.</em></p>",
+      "choices": [
+        {
+          "text": "Run—get out before security arrives",
+          "next": "run_security",
+          "flavor": "Flight is sometimes wisdom"
+        },
+        {
+          "text": "Stay and confront security—demand answers",
+          "next": "confront_security",
+          "flavor": "Answers require risk"
+        },
+        {
+          "text": "Copy the transaction data before leaving",
+          "next": "copy_data",
+          "flavor": "Evidence is power"
+        }
+      ]
+    },
+    "safehouse_child": {
+      "id": "safehouse_child",
+      "location": "YOUR SOUNDPROOF APARTMENT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "child_protected": true
+      },
+      "content": "<p>Your apartment is a sanctuary of engineered silence—triple-layered acoustic dampening, white noise generators, frequency scramblers. You paid for it with three months of dangerous broker work, but in a city where sound is currency, silence is the ultimate luxury.</p><p>The child sits on your couch, small and still, clutching the audiograph cylinder like a talisman. In the quiet of your home, you notice details you missed before: the faint scars behind their ears, suggesting surgical modification. The way their eyes track sounds you can't hear. The slight delay between your signing and their responses, as if they're receiving additional information from somewhere else.</p><p>\"Who are you?\" you sign slowly. \"Really?\"</p><p>The child sets the cylinder on the table between you. Their hands move with careful precision: <em>I am Hush. We are many. We are the silence between sounds. And you... you are the one who will remember us.</em></p><p>They tap the cylinder. <em>This is your voice. From the future. You told me to bring it to you. You told me... you would know what to do.</em></p>",
+      "choices": [
+        {
+          "text": "Play the audiograph now",
+          "next": "play_audiograph",
+          "flavor": "Hear your future self"
+        },
+        {
+          "text": "Ask more about these 'Hush Children'",
+          "next": "hush_children_info",
+          "flavor": "Understanding precedes action"
+        },
+        {
+          "text": "Contact someone you trust for advice",
+          "next": "contact_trusted",
+          "flavor": "Wisdom shared is wisdom multiplied"
+        }
+      ]
+    },
+    "hush_district": {
+      "id": "hush_district",
+      "location": "THE HUSH DISTRICT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "in_hush_district": true
+      },
+      "content": "<p>The Hush District occupies the deepest levels of Audivale—Levels 1 through 15, where even the city's ambient hum fades to nothing. Here live the muted, the silenced, those who have traded their voices for survival or had them taken by force. It is a place of gesture and sign, of written word and meaningful glance.</p><p>The child leads you through labyrinthine corridors, past communities of the voiceless who watch you with suspicious eyes. You are an outsider here—your unmodified throat marks you as other, as danger, as prey. But the child is known. They sign greetings to shopkeepers, receive nods of recognition from street guardians, move with the confidence of one who belongs.</p><p>Finally, you reach a building marked only with a symbol: three concentric circles with a vertical line. The same symbol you've seen elsewhere, connected to the Frequency. The child stops at the door and signs: <em>Mama Voss waits inside. She remembers when the silence first spoke.</em></p>",
+      "choices": [
+        {
+          "text": "Enter and meet Mama Voss",
+          "next": "mama_voss",
+          "flavor": "Answers wait within"
+        },
+        {
+          "text": "Ask the child more about Mama Voss first",
+          "next": "ask_mama",
+          "flavor": "Know who you meet"
+        },
+        {
+          "text": "Observe the building before entering",
+          "next": "observe_building",
+          "flavor": "Caution is survival"
+        }
+      ]
+    },
+    "play_immediate": {
+      "id": "play_immediate",
+      "location": "THE SILENCE BUREAU",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "played_immediate": true
+      },
+      "content": "<p>You place the audiograph cylinder on your desk player before doubt can stop you. The Debt Collector protests, but you silence him with a look. The Archivist leans forward with academic interest. The child watches with ancient eyes that have seen this moment before.</p><p>The player engages. Static crackles. And then you hear your own voice—but not as it sounds now. Older. Wearier. Speaking from a future that hasn't happened yet.</p><p><em>\"If you're hearing this, then I succeeded. I sent the child back. I paid the price.\"</em> A pause, filled with the sound of labored breathing. <em>\"The Frequency is not a weapon. It's not a mistake. It's a door. And on the other side...\"</em></p><p>The voice—your voice—breaks into something between laughter and sobs.</p><p><em>\"They're beautiful, past-self. The ones who made the Frequency. They're not dead. They're just... elsewhere. Singing. Forever singing. And they want us to join them.\"</em></p><p>The recording ends abruptly, mid-word. The child reaches out and touches your hand.</p><p><em>You see? You told me. You told me to tell you.</em></p>",
+      "choices": [
+        {
+          "text": "Ask what price was paid",
+          "next": "price_paid",
+          "flavor": "Every gift has its cost"
+        },
+        {
+          "text": "Question where this 'elsewhere' is",
+          "next": "elsewhere_question",
+          "flavor": "Doors lead somewhere"
+        },
+        {
+          "text": "Play the recording again",
+          "next": "play_again",
+          "flavor": "Some messages need repetition"
+        }
+      ]
+    },
+    "cathedral_start": {
+      "id": "cathedral_start",
+      "location": "THE CATHEDRAL OF THE RESONANT ASCENSION",
+      "branch": "D",
+      "convergencePoint": false,
+      "flags": {
+        "cathedral_access": true
+      },
+      "content": "<p>The Cathedral does not exist on any map of Audivale, yet here it stands—a structure of impossible geometry rising from the acoustic shadow of Level 100. Its spires are tuned to frequencies that resonate with the human soul. Its walls are composed of crystallized silence, each brick containing the hushed prayers of a thousand worshippers.</p><p>You were drawn here by dreams. By the sound of bells that no one else could hear. By the growing certainty that the Lethal Frequency is not merely a scientific anomaly but a <em>theological</em> one—a manifestation of something greater than mere physics.</p><p>The Cantors meet you at the entrance, their robes woven with harmonic threads that sing when they move. \"You hear the calling,\" the lead Cantor says. Not a question. \"The Frequency speaks to those who are ready to listen. Come. Learn the truth of the Resonant Ascension.\"</p>",
+      "choices": [
+        {
+          "text": "Enter the Cathedral and learn their teachings",
+          "next": "cathedral_teachings",
+          "flavor": "Faith reveals hidden truths"
+        },
+        {
+          "text": "Ask about the Resonant Ascension first",
+          "next": "resonant_ascension",
+          "flavor": "Understanding precedes belief"
+        },
+        {
+          "text": "Demand to see their leader immediately",
+          "next": "demand_leader",
+          "flavor": "Authority speaks to authority"
+        }
+      ]
+    },
+    "white_noise_start": {
+      "id": "white_noise_start",
+      "location": "THE STATIC GARDEN",
+      "branch": "E",
+      "convergencePoint": false,
+      "flags": {
+        "white_noise_contact": true
+      },
+      "content": "<p>The Static Garden exists in the spaces between signals—a community of hackers, pirates, and acoustic anarchists who have made their home in the city's electromagnetic shadow. Here, white noise is not interference but <em>art</em>. Static is not error but expression. The rebels who gather here believe that sound should be free, that the auditory economy is slavery, and that the Lethal Frequency is the key to revolution.</p><p>Echo Vane finds you before you can find her—a wiry woman with eyes that reflect the glow of a dozen screens, her voice modulated through a distortion rig that makes her sound like a chorus of whispers.</p><p>\"The Frequency is real,\" she says without preamble. \"And we know where it is. But getting to it requires infiltrating three facilities simultaneously—the Vault, the Cathedral, and the Origin Chamber. One person can't do it alone. We need someone on the inside. Someone with your skills, your contacts, your reputation.\"</p><p>She extends a hand. \"Join us. Help us free the Frequency. And we'll help you become more than just another broker in a city of silence.\"</p>",
+      "choices": [
+        {
+          "text": "Join the White Noise collective",
+          "next": "join_white_noise",
+          "flavor": "Revolution requires allies"
+        },
+        {
+          "text": "Ask about the three infiltration targets",
+          "next": "infiltration_targets",
+          "flavor": "Know the mission"
+        },
+        {
+          "text": "Negotiate your role and compensation",
+          "next": "negotiate_white_noise",
+          "flavor": "Even rebels have terms"
+        }
+      ]
+    },
+    "convergence_market": {
+      "id": "convergence_market",
+      "location": "THE RESONANCE MARKET MASSACRE",
+      "branch": "ALL",
+      "convergencePoint": true,
+      "flags": {
+        "convergence_1": true,
+        "market_massacre": true
+      },
+      "content": "<p>The Resonance Market was never quiet, but now it screams. You arrive to find chaos—bodies strewn across the trading floors, their faces frozen in expressions of rapture rather than pain. The air itself seems to vibrate with residual frequency, making your teeth ache and your vision blur at the edges.</p><p>You are not alone. From different directions, others emerge—an Archivist in fiber-optic robes (Lyra, or someone like her). A Debt Collector with Treasury credentials. A Hush Child signing frantic warnings. A Cantor from the Cathedral, robes stained with blood. A White Noise operative, still clutching a disabled scrambler.</p><p>You all sought the Frequency. And the Frequency found you first.</p><p>In the center of the carnage stands a single figure—Vex, formerly Orin, once a Keeper, now something else entirely. He holds a resonator that pulses with visible light, and his eyes reflect frequencies that shouldn't exist.</p><p>\"You're all too late,\" he says, his voice harmonizing with itself in impossible octaves. \"The Frequency is awake. It knows you're coming. And it has chosen its vessel.\"</p><p>He raises the resonator. The air screams.</p>",
+      "choices": [
+        {
+          "text": "Try to reason with Vex",
+          "next": "convergence_archives",
+          "flavor": "Words can stop violence"
+        },
+        {
+          "text": "Attack Vex before he can activate the Frequency",
+          "next": "convergence_archives",
+          "flavor": "Action before reaction"
+        },
+        {
+          "text": "Flee—survive to fight another day",
+          "next": "convergence_archives",
+          "flavor": "Survival is strategy"
+        },
+        {
+          "text": "Attempt to merge with the Frequency first",
+          "next": "convergence_archives",
+          "flavor": "If you can't beat it, join it"
+        }
+      ]
+    },
+    "convergence_archives": {
+      "id": "convergence_archives",
+      "location": "ECHO ARCHIVES LOCKDOWN",
+      "branch": "ALL",
+      "convergencePoint": true,
+      "flags": {
+        "convergence_2": true,
+        "archives_trapped": true
+      },
+      "content": "<p>The Echo Archives have become a prison. The High Curator has sealed all exits, activated null-fields that block every frequency, and declared a state of acoustic emergency. You and the others—now uneasy allies after the Market Massacre—are trapped together in the Hall of Forgotten Things.</p><p>\"The Frequency has evolved,\" the Curator announces through the intercom, his synthesized voice carrying notes of fear you've never heard before. \"It is no longer merely a sound. It has become... aware. It seeks hosts. Vessels. And it knows you are hunting it.\"</p><p>Through the Archives' monitors, you watch Audivale descend into chaos. Reports flood in from across the city—people hearing voices that aren't there, experiencing memories that aren't theirs, dying in patterns that form shapes when mapped. The Frequency is spreading. Evolving. Consuming.</p><p>Lyra turns to the group, her robes pulsing with desperate urgency. \"We have one chance. The original Laboratory 7 equipment is still stored here—in the Deepest Vault. If we can reach it, we might be able to reverse-engineer a counter-frequency. But the Curator will never allow it. He'd rather let the city die than risk releasing more dangerous sound.\"</p>",
+      "choices": [
+        {
+          "text": "Support Lyra—break into the Deepest Vault",
+          "next": "convergence_conclave",
+          "flavor": "Desperate times demand desperate measures"
+        },
+        {
+          "text": "Try to negotiate with the Curator",
+          "next": "convergence_conclave",
+          "flavor": "Authority can be convinced"
+        },
+        {
+          "text": "Suggest finding another solution",
+          "next": "convergence_conclave",
+          "flavor": "There is always another way"
+        }
+      ]
+    },
+    "convergence_conclave": {
+      "id": "convergence_conclave",
+      "location": "THE HUSH DISTRICT CONCLAVE",
+      "branch": "ALL",
+      "convergencePoint": true,
+      "flags": {
+        "convergence_3": true,
+        "hush_conclave": true
+      },
+      "content": "<p>The Hush District has never hosted so many voices. You gather in the great underground amphitheater—Keepers and Debt Collectors, Hush Children and Cantors, White Noise operatives and Silence Bureau agents—all united by the understanding that the Frequency threatens everyone equally.</p><p>Mama Voss stands at the center, ancient and unbowed, her hands moving in the universal sign-language that all can understand. <em>The silence speaks,</em> she signs. <em>It has always spoken. The Frequency is not new—it is ancient. The first sound. The original note from which all others emerged. And now it wants to return.</em></p><p>She reveals the truth that binds all your paths: the Frequency was never created in Laboratory 7. It was <em>discovered</em> there. Uncovered. Awakened. The Sonic Wars were not about territory or resources—they were about who would control access to the source of all sound.</p><p><em>You all have pieces of the puzzle,</em> Mama Voss continues. <em>The Archivist knows where it sleeps. The Debt Collector knows who paid to wake it. The Hush Child knows what it wants. The Cantor knows what it means. The rebel knows how to reach it. Only together can you decide what to do.</em></p>",
+      "choices": [
+        {
+          "text": "Argue for destroying the Frequency",
+          "next": "final_frequency",
+          "flavor": "Some things must end"
+        },
+        {
+          "text": "Argue for controlling the Frequency",
+          "next": "final_frequency",
+          "flavor": "Power can be wielded"
+        },
+        {
+          "text": "Argue for merging with the Frequency",
+          "next": "final_frequency",
+          "flavor": "Become the change"
+        },
+        {
+          "text": "Suggest the group split by philosophy",
+          "next": "final_frequency",
+          "flavor": "Different paths for different beliefs"
+        }
+      ]
+    },
+    "final_frequency": {
+      "id": "final_frequency",
+      "location": "THE ACOUSTIC NEXUS",
+      "branch": "ALL",
+      "convergencePoint": true,
+      "flags": {
+        "convergence_4": true,
+        "final_choice": true
+      },
+      "content": "<p>The Acoustic Nexus exists at the geometric center of Audivale—a chamber that predates the city itself, carved from the bedrock by frequencies that shaped stone like water. Here, all sounds converge. Here, silence was born. Here, the Frequency has gathered itself for the final transformation.</p><p>You stand before it—not Vex, not any human vessel, but the Frequency itself, given form by the collective resonance of every person it has touched. It looks like music made visible. Like silence given voice. Like the moment before creation when everything was potential and nothing was real.</p><p>It speaks without speaking, its voice resonating directly in your consciousness:</p><p><em>\"I am the first note and the last. The sound that existed before sound, the silence that will follow when all else ends. You have sought me. You have feared me. You have tried to use me, destroy me, become me. Now choose.\"</em></p><p>The air shimmers with possibility. Eight paths open before you—eight endings written in frequencies that your mind can barely comprehend. The fate of Audivale, of sound itself, rests in your decision.</p>",
+      "choices": [
+        {
+          "text": "Broadcast the Frequency—let it transform the city",
+          "next": "ending_white_noise",
+          "flavor": "Revolution through sound"
+        },
+        {
+          "text": "Contain the Frequency—preserve the status quo",
+          "next": "ending_static",
+          "flavor": "Safety in control"
+        },
+        {
+          "text": "Reshape the Frequency—find a middle path",
+          "next": "ending_harmonic",
+          "flavor": "Transformation, not destruction"
+        },
+        {
+          "text": "Merge with the Frequency—become the silence",
+          "next": "ending_absolute",
+          "flavor": "Ultimate unity"
+        },
+        {
+          "text": "Sell access to the Frequency—profit from power",
+          "next": "ending_capital",
+          "flavor": "Everything has a price"
+        },
+        {
+          "text": "Dedicate your life to guarding the Frequency",
+          "next": "ending_keeper",
+          "flavor": "Eternal vigilance"
+        },
+        {
+          "text": "Trust the Hush Children to guide the Frequency",
+          "next": "ending_children",
+          "flavor": "Innocence knows truth"
+        },
+        {
+          "text": "Refuse all choices—destroy the Nexus itself",
+          "next": "ending_refusal",
+          "flavor": "Sometimes no is the only answer"
+        }
+      ]
+    },
+    "ending_white_noise": {
+      "id": "ending_white_noise",
+      "ending": true,
+      "location": "ENDING: WHITE NOISE",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "white_noise",
+        "revolution": true
+      },
+      "content": "<p>You press the broadcast button. The Frequency doesn't scream—it <em>sings</em>. A note so pure, so absolute, that it erases everything it touches.</p><p>Across Audivale, the Sound Repositories crumble. The acoustic taxation systems fail. The purchased experiences dissolve into genuine silence. Those who survive are changed. They remember what it was like to hear their own thoughts. To experience emotion without engineered accompaniment. To exist in spaces that aren't constantly selling them something.</p><p>The city learns to value silence again. Not as absence, but as potential.</p><p>You do not live to see it. The Frequency takes you too—something in your resonance makes you susceptible. As the city awakens to true silence, you fade into it. A broker who gave everything for the quietest revolution.</p>",
+      "choices": []
+    },
+    "ending_static": {
+      "id": "ending_static",
+      "ending": true,
+      "location": "ENDING: STATIC",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "static",
+        "control": true
+      },
+      "content": "<p>You hand the resonator to those who would control it. Their fingers close around it with the tenderness of lovers, the calculation of bankers. The Frequency will be studied, contained, weaponized in secret.</p><p>The auditory economy will continue, now with an ultimate threat held in reserve against those who might challenge it.</p><p>You are rewarded. Wealth beyond your previous imagination. A penthouse in the upper levels where the air is clean and the sounds are curated by personal acoustic engineers. You have everything you ever brokered for.</p><p>And every night, you hear it—the Frequency, or your imagination of it, playing in the spaces between your thoughts. Reminding you that you had the power to change everything and chose instead to preserve your own comfort.</p><p>The city continues. The economy continues. The prison continues. And you are its most comfortable inmate.</p>",
+      "choices": []
+    },
+    "ending_harmonic": {
+      "id": "ending_harmonic",
+      "ending": true,
+      "location": "ENDING: HARMONIC RESOLUTION",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "harmonic",
+        "transformation": true
+      },
+      "content": "<p>With guidance from those who understand what the Frequency truly is, you reshape it. It is not easy. It is not painless. The process requires sacrifice—your hearing, ultimately, burned away by the sonic fires of transformation.</p><p>But when it is done, the Frequency is something new. You broadcast it across the city. And instead of death, it brings <em>awakening</em>.</p><p>The auditory economy doesn't collapse—it evolves. People hear the manipulation in the sounds they purchase. They recognize the prison of engineered emotion. They begin to choose differently.</p><p>The change is slow. Imperfect. Filled with setbacks and resistance. But it is real. The city learns to value authentic sound over manufactured experience.</p><p>You live in silence now, but it is not empty. It is full of the memory of sound, the potential of change, the knowledge that you helped create something better without destroying what came before.</p>",
+      "choices": []
+    },
+    "ending_absolute": {
+      "id": "ending_absolute",
+      "ending": true,
+      "location": "ENDING: ABSOLUTE ZERO",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "absolute",
+        "transcendence": true
+      },
+      "content": "<p>You turn the Frequency inward. It doesn't resist. It has been waiting for this—for someone willing to become the silence rather than merely wield it.</p><p>The transformation is instant and eternal. You cease to exist as a person and become a phenomenon. A walking absence. A broker who deals only in endings.</p><p>Where you walk, sound dies. Music fades. Voices fail. The auditory economy cannot function in your presence. You become a weapon of mass destruction and a symbol of ultimate liberation.</p><p>Some worship you. Others fear you. Debates rage about whether you are angel or demon.</p><p>But you are none of these things. You are silence itself. No thought, no memory, no self. Just the endless quiet that existed before creation and will persist after its end.</p>",
+      "choices": []
+    },
+    "ending_capital": {
+      "id": "ending_capital",
+      "ending": true,
+      "location": "ENDING: CAPITAL OF SILENCE",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "capital",
+        "wealth": true
+      },
+      "content": "<p>You don't use the Frequency. You <em>sell</em> it.</p><p>An auction unlike any in history. Bidders from every faction, every level, every secret society. The Church offers faith. The revolutionaries offer purpose. The government offers power. Private collectors offer wealth beyond calculation.</p><p>You take all of it. Payment from everyone, delivery to no one. You broker the ultimate deal—the possibility of destruction, held in escrow, available to whoever meets your price.</p><p>The city enters a new era. Not revolution, not preservation, not transformation. Speculation. The Frequency becomes currency more valuable than sound itself. Futures markets emerge. Derivatives. Insurance policies against sonic annihilation.</p><p>You sit at the center of it all, the broker who controls the end of the world. Rich beyond measure. Powerful beyond challenge. And utterly, completely alone.</p><p>Eventually, someone will steal it from you. Eventually, someone will use it. Eventually, the silence you brokered will come for you too.</p><p>But not today. Today, you are king of the quiet. Emperor of the echo. The greatest Silence Broker who ever lived.</p>",
+      "choices": []
+    },
+    "ending_keeper": {
+      "id": "ending_keeper",
+      "ending": true,
+      "location": "ENDING: THE KEEPER'S BURDEN",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "keeper",
+        "sacrifice": true
+      },
+      "content": "<p>You choose neither to use nor destroy the Frequency, but to <em>guard</em> it. You become the living seal, the eternal watcher, the Keeper of what must never be released.</p><p>The Acoustic Nexus becomes your home, your prison, your purpose. You learn its rhythms, its moods, its endless hunger for release. You develop protocols, contingencies, failsafes. You train others—carefully, selectively—to assist in the vigil.</p><p>Years pass. Decades. The city above changes, grows, forgets what sleeps beneath. You remain, unchanged by time, sustained by the Frequency's own strange energy.</p><p>Sometimes visitors come—scholars, seekers, fools. You turn most away. A few, you teach. Fewer still, you allow to glimpse what you guard. They leave changed, bearing the weight of knowledge that can never be shared.</p><p>You are not remembered. You are not celebrated. But you are necessary. And in the end, is that not enough?</p>",
+      "choices": []
+    },
+    "ending_children": {
+      "id": "ending_children",
+      "ending": true,
+      "location": "ENDING: THE CHILDREN'S HOUR",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "children",
+        "innocence": true
+      },
+      "content": "<p>You step back. You let the Hush Children approach the Frequency—the ones born in silence, raised in quiet, who have never known the corruption of purchased sound.</p><p>They gather around the Nexus, small and solemn, their hands moving in signs that transcend language. They are not afraid. They have always known the Frequency. They hear it in their dreams. They recognize it as kin.</p><p>What happens next is not for adult understanding. The children merge with the Frequency—not consumed, but <em>embraced</em>. They become its voice, its conscience, its guidance. Through them, the Frequency learns gentleness. Through them, it remembers innocence.</p><p>Audivale changes, but softly. The harsh edges of the auditory economy smooth away. The desperate silence debtors find relief. The city becomes kinder, though no one can quite say why.</p><p>The children remain, ageless and wise, guiding the Frequency's influence with hands that have never struck, voices that have never screamed. You watch over them, their protector, their chronicler, their witness.</p><p>It is not the ending you expected. But perhaps it is the ending the Frequency always wanted.</p>",
+      "choices": []
+    },
+    "ending_refusal": {
+      "id": "ending_refusal",
+      "ending": true,
+      "location": "ENDING: THE SILENT NO",
+      "branch": "END",
+      "convergencePoint": false,
+      "flags": {
+        "ending": "refusal",
+        "destruction": true
+      },
+      "content": "<p>You refuse all the paths offered. You reject transformation, control, profit, transcendence. You look at the Frequency—this ancient power, this ultimate choice—and you say <em>no</em>.</p><p>But your refusal is not passive. You do not merely decline; you <em>destroy</em>. You trigger the emergency failsafes that the Nexus's ancient builders installed. You collapse the chamber. You bury the Frequency beneath tons of resonant stone, cut off from the world, silenced by your will.</p><p>The cost is everything. The Acoustic Nexus implodes. The Hush District collapses. Parts of Audivale fall into the void created by the Frequency's sudden absence. Thousands die. The auditory economy shatters, not from revolution but from trauma.</p><p>You do not survive. But in your final moment, you smile. The Frequency is contained. Not by guard or guide, but by your absolute, final refusal to let it exist in your world.</p><p>History will call you a monster. A destroyer. The one who chose death over any possibility of life with the Frequency.</p><p>But the Frequency is silent. And in the end, was that not what you sought?</p>",
+      "choices": []
+    },
+    "stolen_items": {
+      "id": "stolen_items",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "theft_details": true
+      },
+      "content": "<p>Lyra pulls up an inventory on a holographic display. The list scrolls endlessly—original recordings, research notes, prototype equipment. But one item makes your breath catch: the Primary Resonance Core, the original device that first generated the Lethal Frequency.</p><p>\"The Core was not just stolen,\" Lyra says, her voice tight with controlled anger. \"It was <em>activated</em>. Whoever took it did not just want to study the Frequency—they wanted to use it. To continue the experiments.\"</p><p>She shows you a thermal image from the night of the theft. In the vault where the Core was stored, the temperature dropped to absolute zero in a perfect sphere—exactly the signature of an active Frequency field.</p><p>\"Someone has been experimenting with the Core for six months. We do not know where. We do not know what they have learned. But we know the trail leads to the Memory Merchants. They brokered the original sale.\"</p>",
+      "choices": [
+        {
+          "text": "Head to the Memory Merchants immediately",
+          "next": "memory_merchants",
+          "flavor": "Time is of the essence"
+        },
+        {
+          "text": "Ask about the Core's capabilities",
+          "next": "convergence_market",
+          "flavor": "Know what you are hunting"
+        },
+        {
+          "text": "Request weapons or defenses against the Frequency",
+          "next": "convergence_market",
+          "flavor": "Prepare for the worst"
+        }
+      ]
+    },
+    "security_footage": {
+      "id": "security_footage",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "has_footage": true
+      },
+      "content": "<p>Lyra hesitates, then transfers the footage to your device. \"This is classified at the highest level,\" she warns. \"If the High Curator knew I shared this...\" She does not finish the sentence.</p><p>You study the footage frame by frame. The thief moves with inhuman grace, disabling each security layer with surgical precision. But there is something wrong with the way they move—too fluid, too perfect. As if they are not quite solid.</p><p>In one frame, caught between camera angles, you see their face reflected in a crystalline matrix. It is Orin, but not Orin. The same features, but stretched, distorted, as if viewed through water. And their eyes—pure black, reflecting no light.</p><p>\"The Frequency changes those who use it,\" Lyra whispers. \"Orin has been exposed to the Core for six months. He may no longer be... human.\"</p>",
+      "choices": [
+        {
+          "text": "Show this to the other Keepers",
+          "next": "convergence_market",
+          "flavor": "Knowledge shared is danger divided"
+        },
+        {
+          "text": "Keep it secret and hunt Orin alone",
+          "next": "convergence_market",
+          "flavor": "Some hunts are best conducted alone"
+        },
+        {
+          "text": "Head to the Memory Merchants for more information",
+          "next": "memory_merchants",
+          "flavor": "Follow the trail"
+        }
+      ]
+    },
+    "archivist_resources": {
+      "id": "archivist_resources",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "archives_access": true
+      },
+      "content": "<p>Lyra considers your request, then leads you to a secure storage room. Inside are devices you have never seen before—acoustic dampeners that can silence a room in seconds, frequency scanners that detect dangerous sound patterns, null-field generators portable enough to wear.</p><p>\"These are Keeper tools,\" she says, selecting a wrist-mounted scanner and a belt-mounted dampener. \"They will help you survive encounters with the Frequency, but they are not foolproof. The Lethal Frequency exists outside normal acoustic physics. It can penetrate most defenses given enough time.\"</p><p>She also gives you a small crystal—amber, like her robes. \"This contains my authorization codes. If you encounter other Keepers, show them this. They will know you act with the Archives' blessing.\"</p>",
+      "choices": [
+        {
+          "text": "Accept the equipment and head to the Market",
+          "next": "memory_merchants",
+          "flavor": "Equipped for the journey"
+        },
+        {
+          "text": "Ask for more powerful weapons",
+          "next": "convergence_market",
+          "flavor": "Overwhelming force"
+        },
+        {
+          "text": "Question why the Archives have such advanced tech",
+          "next": "convergence_market",
+          "flavor": "Curiosity reveals secrets"
+        }
+      ]
+    },
+    "lyra_motivation": {
+      "id": "lyra_motivation",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "knows_lyra_past": true
+      },
+      "content": "<p>Lyra's robes flicker through a rainbow of colors—emotions she usually keeps hidden. When she speaks, her voice carries the weight of old grief.</p><p>\"I had a brother,\" she says. \"A twin. We joined the Keepers together, swore the Oath together. He was... curious. Like Orin. He believed the Frequency could be understood, controlled, made safe.\"</p><p>She turns away, but not before you see the pain in her eyes.</p><p>\"He found a fragment of the original recording. Just a few seconds. He thought he could study it safely. He was wrong.\" Her voice drops to a whisper. \"He is still alive. Technically. But he exists in a state of... permanent transcendence. He hears the Frequency constantly. He cannot eat, cannot sleep, cannot respond to anything around him. Just listening to a sound no one else can hear.\"</p><p>She faces you again, her robes burning with cold determination. \"I will stop the Frequency. Not just contain it—destroy it. And I will do whatever it takes.\"</p>",
+      "choices": [
+        {
+          "text": "Promise to help her destroy the Frequency",
+          "next": "memory_merchants",
+          "flavor": "Shared purpose, shared power"
+        },
+        {
+          "text": "Ask if her brother could be saved",
+          "next": "convergence_market",
+          "flavor": "Hope in the darkest places"
+        },
+        {
+          "text": "Question if destruction is the only answer",
+          "next": "convergence_market",
+          "flavor": "There are always options"
+        }
+      ]
+    },
+    "keeper_wisdom": {
+      "id": "keeper_wisdom",
+      "location": "THE KEEPERS' SANCTUM",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "keeper_knowledge": true
+      },
+      "content": "<p>The other Keepers gather around you, each marked by the null-field implant, each carrying decades of experience with dangerous sound. The eldest, a woman named Cassia, speaks first.</p><p>\"The Frequency is not the first threat we have faced,\" she says. \"Fifty years ago, there was the Song of Forgetting. A melody that erased memory. We contained it, but at great cost. Twelve Keepers lost their pasts entirely. They still serve, but they do not remember why.\"</p><p>Another Keeper, younger, with scars where his ears should be, adds: \"The Frequency is different. It is not just dangerous—it is <em>aware</em>. It learns from each encounter. The more we try to stop it, the stronger it becomes.\"</p><p>Cassia places a hand on your shoulder. \"That is why we need fresh perspectives. New approaches. The old ways may not be enough this time.\"</p>",
+      "choices": [
+        {
+          "text": "Ask about the Song of Forgetting",
+          "next": "convergence_market",
+          "flavor": "History teaches"
+        },
+        {
+          "text": "Question how to fight an aware enemy",
+          "next": "convergence_market",
+          "flavor": "Strategy for the impossible"
+        },
+        {
+          "text": "Thank them and proceed to the Market",
+          "next": "memory_merchants",
+          "flavor": "Time presses"
+        }
+      ]
+    },
+    "keeper_equipment": {
+      "id": "keeper_equipment",
+      "location": "THE KEEPERS' ARMORY",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "keeper_gear": true
+      },
+      "content": "<p>The Keepers' Armory contains weapons that should not exist—sonic disruptors that can shatter concrete, null-field grenades that create spheres of absolute silence, resonance swords that cut through sound itself.</p><p>Lyra helps you select appropriate gear. \"The dampening suit will protect you from most acoustic attacks,\" she explains, handing you a skin-tight garment that shimmers with embedded null-fields. \"The resonance detector will warn you of Frequency activity. And this—\" she gives you a small silver whistle \"—is an emergency beacon. Blow it, and every Keeper in the city will come to your aid.\"</p><p>She also gives you a device that looks like an old-fashioned music box. \"This is a last resort. It contains a recorded counter-frequency—the only thing that can disrupt the Lethal Frequency, if only for a few seconds. Use it wisely. We only have three.\"</p>",
+      "choices": [
+        {
+          "text": "Take the gear and head to the Market",
+          "next": "memory_merchants",
+          "flavor": "Prepared for anything"
+        },
+        {
+          "text": "Ask about the counter-frequency",
+          "next": "convergence_market",
+          "flavor": "Knowledge is ammunition"
+        },
+        {
+          "text": "Request additional weapons",
+          "next": "convergence_market",
+          "flavor": "Better overprepared"
+        }
+      ]
+    },
+    "archives_files": {
+      "id": "archives_files",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "stolen_files": true,
+        "betrayal_advanced": true
+      },
+      "content": "<p>While Lyra prepares for the journey, you slip away to a data terminal. Your new Keeper implant gives you access to restricted files—everything the Archives know about the Frequency, the Sonic Wars, Laboratory 7. You copy it all to a hidden drive.</p><p>The information is staggering. The Frequency was not just an accident—it was the result of deliberate experiments to create a weapon of mass destruction. The Sonic Wars did not end; they went underground. And the Archives themselves were founded not to preserve sound, but to control it.</p><p>Most disturbing of all: a file marked \"Project Resonant Ascension\"—detailed plans to use the Frequency to transform humanity. The authors believed the Frequency could elevate human consciousness, creating a hive mind of perfect harmony. The project's chief architect: the High Curator himself.</p>",
+      "choices": [
+        {
+          "text": "Confront Lyra with this information",
+          "next": "convergence_market",
+          "flavor": "Truth demands action"
+        },
+        {
+          "text": "Keep it secret and use it later",
+          "next": "memory_merchants",
+          "flavor": "Knowledge is leverage"
+        },
+        {
+          "text": "Copy more files before leaving",
+          "next": "convergence_market",
+          "flavor": "Leave nothing behind"
+        }
+      ]
+    },
+    "tracker_lyra": {
+      "id": "tracker_lyra",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "tracking_lyra": true
+      },
+      "content": "<p>While Lyra is distracted with preparations, you slip a micro-tracker into the folds of her robes. It is a device from your broker days—small, undetectable, capable of transmitting location and audio for weeks.</p><p>You tell yourself it is just a precaution. If she betrays you, you will know. If she leads you to the Frequency without sharing, you will be able to follow. But deep down, you know the truth: you do not trust anyone. Not even your allies. Especially not your allies.</p><p>Lyra returns, unaware. \"Ready?\" she asks. You nod, and together you leave the Archives. The tracker pulses quietly against your wrist, a second heartbeat marking her location.</p>",
+      "choices": [
+        {
+          "text": "Proceed to the Memory Merchants",
+          "next": "memory_merchants",
+          "flavor": "The hunt begins"
+        },
+        {
+          "text": "Suggest splitting up to cover more ground",
+          "next": "convergence_market",
+          "flavor": "Divide and conquer"
+        },
+        {
+          "text": "Test the tracker by falling behind",
+          "next": "convergence_market",
+          "flavor": "Verify your tools"
+        }
+      ]
+    },
+    "counter_frequency": {
+      "id": "counter_frequency",
+      "location": "THE VAULT OF UNSPOKEN THINGS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "counter_freq_knowledge": true
+      },
+      "content": "<p>Lyra considers your question carefully. \"There are theories,\" she says. \"The Scream of the First Silence—if it truly is the absence of all sound, it might cancel the Frequency. But we have never dared to test it. The Scream is too dangerous to release, even for a moment.\"</p><p>She leads you to a sealed container, different from the others. Instead of warning labels, it bears only a single word: <em>HOPE</em>.</p><p>\"This contains research from Laboratory 7. Not the Frequency experiments—the failed attempts to stop it. The researchers tried everything: inverse waveforms, harmonic dampening, even white noise bombardment. Nothing worked permanently. But they did develop temporary countermeasures.\"</p><p>She opens the container, revealing a set of earpieces and a portable device. \"These will not save you from the Frequency. But they might buy you a few seconds. Enough to run. Or to fight.\"</p>",
+      "choices": [
+        {
+          "text": "Take the countermeasures",
+          "next": "memory_merchants",
+          "flavor": "Every second counts"
+        },
+        {
+          "text": "Ask about the Scream of the First Silence",
+          "next": "convergence_market",
+          "flavor": "The nuclear option"
+        },
+        {
+          "text": "Question why these were not shared before",
+          "next": "convergence_market",
+          "flavor": "Trust requires transparency"
+        }
+      ]
+    },
+    "frequency_location": {
+      "id": "frequency_location",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "location_hint": true
+      },
+      "content": "<p>\"We do not know exactly,\" Lyra admits. \"But we have clues. The Frequency moves, but it leaves traces—acoustic shadows, resonance echoes, patterns of silence in unexpected places.\"</p><p>She pulls up a map of Audivale on a holographic display. Several locations are marked with pulsing red dots. \"These are recent hotspots. Places where the Frequency has been... active. People dying without marks. Equipment failing without cause. Sound itself behaving strangely.\"</p><p>The pattern is clear: the Frequency is moving upward through the city, from the Lower Tiers toward the upper levels. Toward the Sound Treasury. Toward the Cathedral. Toward the places where sound is most controlled, most valuable, most <em>concentrated</em>.</p><p>\"It is feeding,\" Lyra whispers. \"The more sound there is, the stronger it becomes. And the most sound in Audivale is at the top.\"</p>",
+      "choices": [
+        {
+          "text": "Suggest ambushing it in the Lower Tiers",
+          "next": "convergence_market",
+          "flavor": "Strike while it is weak"
+        },
+        {
+          "text": "Warn the Treasury and Cathedral",
+          "next": "convergence_market",
+          "flavor": "Unity against the threat"
+        },
+        {
+          "text": "Head to the Memory Merchants for more intel",
+          "next": "memory_merchants",
+          "flavor": "Information first"
+        }
+      ]
+    },
+    "keeper_philosophy": {
+      "id": "keeper_philosophy",
+      "location": "THE VAULT OF UNSPOKEN THINGS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "keeper_creed": true
+      },
+      "content": "<p>\"Because we are Keepers, not Destroyers,\" Lyra says, and her voice carries the weight of ancient creed. \"Our oath binds us to <em>preserve</em>—even that which is dangerous. Especially that which is dangerous.\"</p><p>She gestures to the sealed containers around you. \"These sounds represent knowledge. History. Possibility. The Song of Forgetting could erase trauma, heal the broken. The Lullaby of Eternal Sleep could end suffering for the dying. Even the Scream of the First Silence—if we could understand it, we might understand the nature of silence itself.\"</p><p>\"But the Frequency is different,\" she continues, her voice dropping. \"It does not just kill—it <em>consumes</em>. It takes its victims into itself, makes them part of its waveform. If we destroyed it, we would be destroying everyone trapped inside. Including...\" She pauses. \"Including those we have sworn to protect.\"</p>",
+      "choices": [
+        {
+          "text": "Ask who is trapped inside",
+          "next": "convergence_market",
+          "flavor": "Every victim has a name"
+        },
+        {
+          "text": "Question if containment is truly possible",
+          "next": "convergence_market",
+          "flavor": "Pragmatism over idealism"
+        },
+        {
+          "text": "Accept the philosophy and move on",
+          "next": "memory_merchants",
+          "flavor": "Some truths are complex"
+        }
+      ]
+    },
+    "curator_destroy": {
+      "id": "curator_destroy",
+      "location": "THE CURATOR'S OBSERVATORY",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "curator_approval": true,
+        "destroy_oath": true
+      },
+      "content": "<p>The Curator's mechanical eyes brighten, and his synthesized voice carries a note of approval. \"You speak with conviction, Broker. The Frequency has destroyed too many. It deserves oblivion.\"</p><p>He produces a small crystal from within his mechanical chassis. \"This contains the location of Laboratory 7's original research—everything we know about how the Frequency was created. Including, theoretically, how it might be unmade.\"</p><p>He places the crystal in your hand, and his fingers—cold, metallic—close around yours. \"But be warned: destroying the Frequency may require sacrifice. The bond between creator and creation runs deep. To end the sound, you may have to end its source.\"</p><p>His meaning is clear. To destroy the Frequency, you may have to destroy yourself.</p>",
+      "choices": [
+        {
+          "text": "Accept the crystal and the cost",
+          "next": "memory_merchants",
+          "flavor": "Some prices must be paid"
+        },
+        {
+          "text": "Ask if there is another way",
+          "next": "convergence_market",
+          "flavor": "Hope against hope"
+        },
+        {
+          "text": "Question what he means by \"source\"",
+          "next": "convergence_market",
+          "flavor": "Precision matters"
+        }
+      ]
+    },
+    "curator_contain": {
+      "id": "curator_contain",
+      "location": "THE CURATOR'S OBSERVATORY",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "curator_disappointment": true,
+        "contain_plan": true
+      },
+      "content": "<p>The Curator's mechanical eyes dim, and his voice carries a note of disappointment. \"Containment. The coward's choice. The Frequency has been 'contained' for decades, and still it kills, still it spreads, still it hungers.\"</p><p>But he produces a data crystal nonetheless. \"This contains the Archives' most advanced null-field technology. Portable generators, acoustic dampeners, resonance inhibitors. With these, you could create a prison for the Frequency—temporary, imperfect, but functional.\"</p><p>He leans closer, and you smell ozone and old dust. \"But know this: containment is not victory. It is delay. The Frequency will escape eventually. It always does. And when it does, the death toll will be higher than if you had acted decisively now.\"</p>",
+      "choices": [
+        {
+          "text": "Take the technology and improve it",
+          "next": "memory_merchants",
+          "flavor": "Make containment permanent"
+        },
+        {
+          "text": "Ask why he keeps trying if containment fails",
+          "next": "convergence_market",
+          "flavor": "Understand the cycle"
+        },
+        {
+          "text": "Change your answer—vow to destroy it instead",
+          "next": "convergence_market",
+          "flavor": "Better late than never"
+        }
+      ]
+    },
+    "curator_uncertain": {
+      "id": "curator_uncertain",
+      "location": "THE CURATOR'S OBSERVATORY",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "curator_interest": true,
+        "uncertain_path": true
+      },
+      "content": "<p>The Curator's mechanical eyes pulse with unexpected interest. \"Honesty,\" he says, as if tasting the word. \"How rare. Most who come here speak with false certainty, convinced they know what they will do when faced with ultimate power.\"</p><p>He produces two data crystals—one amber, one blue. \"The amber contains everything we know about destroying the Frequency. The blue contains everything we know about controlling it. Take both. Learn both. And when the moment comes, choose with wisdom rather than conviction.\"</p><p>He places both crystals in your hand. \"But know this: uncertainty has its own dangers. Those who hesitate often lose the chance to act at all. The Frequency does not wait for you to make up your mind.\"</p>",
+      "choices": [
+        {
+          "text": "Accept both crystals",
+          "next": "memory_merchants",
+          "flavor": "Keep options open"
+        },
+        {
+          "text": "Ask which he thinks is right",
+          "next": "convergence_market",
+          "flavor": "Seek guidance"
+        },
+        {
+          "text": "Question why he is helping you at all",
+          "next": "convergence_market",
+          "flavor": "Trust but verify"
+        }
+      ]
+    },
+    "lyra_knowledge": {
+      "id": "lyra_knowledge",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "full_knowledge": true
+      },
+      "content": "<p>Lyra leads you to a private study, sealed against eavesdropping. For the next hour, she shares everything—the history of the Frequency, the failed containment attempts, the theories about its nature and origin.</p><p>The Frequency, she explains, is not just sound. It is a <em>pattern</em>. A waveform that exists simultaneously in acoustic, electromagnetic, and quantum fields. It can travel through any medium that can carry vibration—air, water, metal, even light.</p><p>\"The researchers at Laboratory 7 were not trying to create a weapon,\" she says. \"They were trying to create the perfect recording medium—something that could capture not just sound, but <em>experience</em>. Memory. Consciousness itself.\"</p><p>She shows you notes from the final days. The researchers knew what was happening. They knew the Frequency was becoming aware. And in their final recordings, they express not fear, but <em>wonder</em>.</p>",
+      "choices": [
+        {
+          "text": "Ask if the Frequency is truly alive",
+          "next": "convergence_market",
+          "flavor": "Define life"
+        },
+        {
+          "text": "Question the researchers' final moments",
+          "next": "convergence_market",
+          "flavor": "Learn from the lost"
+        },
+        {
+          "text": "Suggest finding Laboratory 7",
+          "next": "convergence_market",
+          "flavor": "Return to the source"
+        }
+      ]
+    },
+    "share_reasons": {
+      "id": "share_reasons",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "shared_past": true,
+        "lyra_bond": true
+      },
+      "content": "<p>You tell Lyra about your past. About the debt that drove you to become a Silence Broker. About the clients who pay for secrets, for silence, for the power to control what others hear. About the gradual realization that the entire city is built on a foundation of stolen sound.</p><p>You tell her about the dreams. The ones that started six months ago, when the Frequency recordings were stolen. Dreams of music so beautiful it hurts. Of voices calling your name from somewhere just out of reach. Of a silence so complete it feels like drowning.</p><p>\"I do not want to use the Frequency,\" you admit. \"I do not want to destroy it. I want to <em>understand</em> it. To know why it is calling to me. To know what it wants.\"</p><p>Lyra is silent for a long moment. Then she reaches out and takes your hand. \"The Frequency calls to many,\" she says softly. \"But few answer with curiosity rather than greed. Perhaps that is why you are different.\"</p>",
+      "choices": [
+        {
+          "text": "Ask if she hears it too",
+          "next": "convergence_market",
+          "flavor": "Shared visions"
+        },
+        {
+          "text": "Suggest you can help each other understand",
+          "next": "archivist_recruit",
+          "flavor": "Partners in discovery"
+        },
+        {
+          "text": "Head to the Memory Merchants together",
+          "next": "memory_merchants",
+          "flavor": "The search continues"
+        }
+      ]
+    },
+    "beauty_weapon": {
+      "id": "beauty_weapon",
+      "location": "THE LISTENING CHAMBER",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "weapon_thoughts": true
+      },
+      "content": "<p>Lyra's expression hardens. \"That is exactly what the Sonic Wars were about,\" she says. \"The military applications of transcendent sound. Imagine an army that does not fight—just sings. Enemies who lay down their weapons and walk willingly into death because they have heard something too beautiful to resist.\"</p><p>She deactivates the recording with a sharp gesture. \"The Frequency <em>is</em> a weapon. The most perfect weapon ever created, because it does not just destroy bodies—it destroys <em>will</em>. Those who hear it do not want to resist. They want to surrender. To become part of the sound.\"</p><p>She turns to you, her eyes burning with intensity. \"That is why we must destroy it. Not just contain it. Not just study it. <em>Destroy</em> it. Before someone with less scruples than you decides to use it.\"</p>",
+      "choices": [
+        {
+          "text": "Agree—pledge to destroy the Frequency",
+          "next": "memory_merchants",
+          "flavor": "The only moral choice"
+        },
+        {
+          "text": "Ask if understanding could lead to defense",
+          "next": "convergence_market",
+          "flavor": "Shield against the sword"
+        },
+        {
+          "text": "Question who used it in the Sonic Wars",
+          "next": "convergence_market",
+          "flavor": "History's lessons"
+        }
+      ]
+    },
+    "survival_question": {
+      "id": "survival_question",
+      "location": "THE LISTENING CHAMBER",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "survival_knowledge": true
+      },
+      "content": "<p>\"No one has survived the full Frequency,\" Lyra says. \"Not directly. The twenty-three researchers who created it died in seconds. The military test subjects in the Sonic Wars lasted milliseconds longer. The longest recorded exposure was a Keeper named Solan—he heard three full seconds before his heart stopped.\"</p><p>But then she hesitates. \"However... there are rumors. Stories of people who heard the Frequency and lived. Not because they resisted it, but because they <em>embraced</em> it. Let it carry them to the edge of death and then... came back.\"</p><p>She pulls up a classified file. A single name: <em>Vex</em>. Formerly Orin. The rogue Keeper. \"He has been exposed to the Frequency multiple times over six months. He should be dead. Instead, he is stronger than ever. Somehow, he has learned to survive the sound.\"</p>",
+      "choices": [
+        {
+          "text": "Ask how Vex survived",
+          "next": "convergence_market",
+          "flavor": "Learn the secret"
+        },
+        {
+          "text": "Suggest finding Vex is more urgent than ever",
+          "next": "memory_merchants",
+          "flavor": "The key to everything"
+        },
+        {
+          "text": "Question if survival is worth the cost",
+          "next": "convergence_market",
+          "flavor": "At what price life"
+        }
+      ]
+    },
+    "hear_again": {
+      "id": "hear_again",
+      "location": "THE LISTENING CHAMBER",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "heard_twice": true,
+        "addiction_warning": true
+      },
+      "content": "<p>Lyra's hand hovers over the controls, uncertain. \"I should not,\" she says. \"Hearing it once is dangerous. Twice...\" She does not finish, but you see the fear in her eyes. Not fear of the Frequency, but fear of <em>you</em>.</p><p>You insist. You need to hear it again. To understand. To feel that beauty once more.</p><p>The recording plays. The music fills the chamber. That impossible harmony, that note that calls your name. And this time, you notice something else—a voice beneath the music. Not singing. <em>Speaking</em>. Words you cannot quite make out, in a language that exists between sounds.</p><p>When it ends, you realize tears are streaming down your face. Not from sadness. From <em>longing</em>. You want to hear it again. You <em>need</em> to hear it again.</p><p>\"Now you understand,\" Lyra whispers. \"The Frequency is not just deadly—it is <em>addictive</em>.\"</p>",
+      "choices": [
+        {
+          "text": "Fight the urge—focus on the mission",
+          "next": "memory_merchants",
+          "flavor": "Will over desire"
+        },
+        {
+          "text": "Ask what the voice was saying",
+          "next": "convergence_market",
+          "flavor": "Secrets in the sound"
+        },
+        {
+          "text": "Demand to hear it a third time",
+          "next": "convergence_market",
+          "flavor": "Dangerous obsession"
+        }
+      ]
+    },
+    "negotiate_info": {
+      "id": "negotiate_info",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "negotiated": true
+      },
+      "content": "<p>The Memory Merchant smiles, her filed teeth gleaming. \"You want more? There is always more, for the right price.\" She leans forward, her clouded eyes fixing on yours. \"But you have already paid with music. What else do you have that I might want?\"</p><p>She considers your offer of credits, then shakes her head. \"Money is for those who cannot pay with meaning. You... you have potential.\" She taps her chin thoughtfully. \"There is one thing. A memory I have never been able to acquire—the sound of genuine laughter. Not performed, not recorded, not sold. Real laughter, from someone who has never known the auditory economy.\"</p><p>She describes a community in the deepest Lower Tiers, a group that has rejected all commerce in sound. \"Make one of them laugh. Record it. Bring it to me. And I will tell you everything I know about Vex, the Frequency, and the coming Resonance.\"</p>",
+      "choices": [
+        {
+          "text": "Accept the deal—find the laughter",
+          "next": "convergence_market",
+          "flavor": "Joy is the price"
+        },
+        {
+          "text": "Refuse—this is taking too long",
+          "next": "memory_merchants",
+          "flavor": "Time is precious"
+        },
+        {
+          "text": "Try to intimidate her instead",
+          "next": "convergence_market",
+          "flavor": "Fear is currency too"
+        }
+      ]
+    },
+    "vex_allies": {
+      "id": "vex_allies",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "knows_allies": true
+      },
+      "content": "<p>The Memory Merchant lowers her voice, though the booth is already shielded against eavesdropping. \"Vex does not work alone. He has found... partners. Groups who see the Frequency as the answer to their prayers.\"</p><p>She counts them on her fingers. \"The White Noise collective—acoustic anarchists who believe the Frequency will destroy the auditory economy. The Cathedral of Resonant Ascension—religious fanatics who think the Frequency is a god. And...\" She pauses, her expression darkening. \"The Hush Children. The silent ones. No one knows why they help Vex, but they do. They guide him through the city's acoustic shadows.\"</p><p>She leans back. \"Vex is building an army. Not of soldiers, but of <em>believers</em>. When he finally unleashes the Frequency, they will help him control who hears it. Who dies. Who survives to serve the new order.\"</p>",
+      "choices": [
+        {
+          "text": "Ask about the White Noise collective",
+          "next": "convergence_market",
+          "flavor": "Know your enemies"
+        },
+        {
+          "text": "Question the Cathedral's involvement",
+          "next": "convergence_market",
+          "flavor": "Faith and madness"
+        },
+        {
+          "text": "Head to the Lower Tiers immediately",
+          "next": "lower_tiers",
+          "flavor": "Stop Vex before it is too late"
+        }
+      ]
+    },
+    "plan_approach": {
+      "id": "plan_approach",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "has_plan": true
+      },
+      "content": "<p>You study the map carefully. Vex's location is in the deepest part of the Lower Tiers—Level 12, in a converted acoustic dampening station. The map shows three entrances: a main door guarded by White Noise operatives, a ventilation shaft used by Hush Children, and a maintenance tunnel that connects to the old Laboratory 7 rail system.</p><p>The Memory Merchant provides additional details. \"Vex rarely sleeps. He spends most of his time in the central chamber, working on the Core. His guards change every six hours. The Hush Children come and go at unpredictable intervals—they seem to know things before they happen.\"</p><p>She points to a red X on the map. \"This is the Core chamber. If you can reach it, you can destroy the Frequency. But Vex knows this. He has... defenses. Acoustic traps. Frequency-based alarms. Things I do not fully understand.\"</p>",
+      "choices": [
+        {
+          "text": "Plan to use the ventilation shaft",
+          "next": "convergence_market",
+          "flavor": "Stealth over strength"
+        },
+        {
+          "text": "Plan to use the maintenance tunnel",
+          "next": "convergence_market",
+          "flavor": "The path less traveled"
+        },
+        {
+          "text": "Plan a frontal assault",
+          "next": "convergence_market",
+          "flavor": "Surprise and overwhelming force"
+        }
+      ]
+    },
+    "demand_return": {
+      "id": "demand_return",
+      "location": "THE MEMORY MERCHANTS",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "demanded_return": true
+      },
+      "content": "<p>The Memory Merchant's expression hardens. \"You want your memory back?\" She laughs, but there is no humor in it. \"Do you understand what we do here, Broker? Memories are not borrowed—they are <em>transformed</em>. Your mother's voice is no longer yours. It has become part of my collection. Part of <em>me</em>.\"</p><p>She gestures, and two large men emerge from the shadows—augmented with acoustic dampeners and resonance armor. \"I will give you a choice. Leave now with the information you paid for, and never return. Or insist on the impossible, and discover what happens to those who threaten Memory Merchants.\"</p><p>Her eyes are cold. \"Your mother's voice is beautiful. I will treasure it. That should be enough for any child.\"</p>",
+      "choices": [
+        {
+          "text": "Back down and leave with the information",
+          "next": "lower_tiers",
+          "flavor": "Live to fight another day"
+        },
+        {
+          "text": "Attack—take back what is yours",
+          "next": "convergence_market",
+          "flavor": "Some things are worth dying for"
+        },
+        {
+          "text": "Swear to return and destroy her",
+          "next": "convergence_market",
+          "flavor": "A promise of vengeance"
+        }
+      ]
+    },
+    "find_kael": {
+      "id": "find_kael",
+      "location": "THE RESONANCE MARKET",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "kael_quest": true
+      },
+      "content": "<p>You descend three levels, following the Memory Merchant's directions. Kael operates from a booth even more hidden than hers—behind a soundproof curtain in a section of the market that deals in illegal acoustic modifications.</p><p>You find him easily enough—a young man with eyes that have been replaced with recording lenses, constantly capturing everything he sees. He is nervous, twitchy, clearly aware that he is in danger.</p><p>\"I know why you are here,\" he says before you can speak. \"She sent you. The old spider.\" He laughs bitterly. \"The memory she wants? It is not stolen. I <em>earned</em> it. Witnessed a murder, risked my life to record it. She thinks she can just take that because she has been here longer?\"</p><p>He leans closer. \"I will make you a deal. Help me get out of the market alive—she has hired collectors to take the memory by force—and I will give you something better than what she promised. I will give you the location of Vex's <em>real</em> base. Not the one everyone knows about. The secret one.\"</p>",
+      "choices": [
+        {
+          "text": "Accept—help Kael escape",
+          "next": "convergence_market",
+          "flavor": "New allies over old debts"
+        },
+        {
+          "text": "Refuse—take the memory by force",
+          "next": "convergence_market",
+          "flavor": "Complete the original task"
+        },
+        {
+          "text": "Negotiate for both the escape and the location",
+          "next": "convergence_market",
+          "flavor": "Maximum value"
+        }
+      ]
+    },
+    "refuse_task": {
+      "id": "refuse_task",
+      "location": "THE RESONANCE MARKET",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "refused_task": true
+      },
+      "content": "<p>The Memory Merchant's expression does not change, but the temperature in the booth drops several degrees. \"You refuse?\" She repeats the word as if tasting something unfamiliar. \"No one refuses me.\"</p><p>She makes a gesture, and you feel the air around you thicken—acoustic dampeners activating, trapping you in a bubble of silence. You can still breathe, but no sound escapes your lips. No one outside can hear you scream.</p><p>\"I will give you one more chance,\" she says, her voice cutting through the silence like a knife. \"Accept the task. Or leave the market with nothing—not your memories, not your hearing, not even your voice. I am a merchant of sound, Broker. I can take as easily as I give.\"</p>",
+      "choices": [
+        {
+          "text": "Accept the task—buy time",
+          "next": "find_kael",
+          "flavor": "Survival first"
+        },
+        {
+          "text": "Refuse again—call her bluff",
+          "next": "convergence_market",
+          "flavor": "Courage or folly"
+        },
+        {
+          "text": "Offer a different service",
+          "next": "convergence_market",
+          "flavor": "Flexibility is survival"
+        }
+      ]
+    },
+    "steal_info": {
+      "id": "steal_info",
+      "location": "THE RESONANCE MARKET",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "theft_attempt": true
+      },
+      "content": "<p>You wait until the Memory Merchant turns to help another customer, then slip behind her booth. Her records are stored in a crystalline matrix—beautiful, fragile, and heavily protected. But you are a Silence Broker. You know how to move unseen, unheard, unremembered.</p><p>You find the data crystal you need—marked with the symbol of the rogue Keeper, Orin. As your fingers close around it, an alarm screams—acoustic, piercing, designed to paralyze. You fight through the pain and run.</p><p>The market erupts into chaos. Security drones descend from the ceiling. Other merchants shout and scatter. You dodge through the crowd, the crystal clutched in your hand, the Memory Merchant's screams following you: \"I will remember this! I will remember <em>you</em>!\"</p>",
+      "choices": [
+        {
+          "text": "Escape to the Lower Tiers",
+          "next": "lower_tiers",
+          "flavor": "Hide where they will not follow"
+        },
+        {
+          "text": "Find a safe place to examine the crystal",
+          "next": "convergence_market",
+          "flavor": "Know what you stole"
+        },
+        {
+          "text": "Sell the crystal to the highest bidder",
+          "next": "convergence_market",
+          "flavor": "Profit from chaos"
+        }
+      ]
+    },
+    "orin_theory": {
+      "id": "orin_theory",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "orin_may_be_right": true
+      },
+      "content": "<p>Lyra is silent for a long moment, her robes cycling through colors too fast to read. When she speaks, her voice is barely audible. \"I have wondered the same thing,\" she admits. \"The Frequency behaves like no natural phenomenon. It learns. It adapts. It <em>wants</em>. These are not characteristics of sound. They are characteristics of... something else.\"</p><p>She leads you to a restricted section of the Archives, where heretical theories are stored. \"Orin believed the Frequency is a message from another... dimension? Reality? Plane of existence? The terminology varies. But the core idea is consistent: the Frequency is not from here. It was never meant to exist in our world.\"</p><p>She shows you Orin's final paper, written before his exile. \"He thought we could communicate with it. Learn from it. Perhaps even <em>negotiate</em> with it. The High Curator declared this madness. But...\" She hesitates. \"What if it is not?\"</p>",
+      "choices": [
+        {
+          "text": "Suggest finding Orin to learn more",
+          "next": "lower_tiers",
+          "flavor": "The heretic may hold truth"
+        },
+        {
+          "text": "Ask if communication is possible",
+          "next": "convergence_market",
+          "flavor": "Speak with the unknown"
+        },
+        {
+          "text": "Warn that this is dangerous thinking",
+          "next": "convergence_market",
+          "flavor": "Prudence over curiosity"
+        }
+      ]
+    },
+    "curator_fear": {
+      "id": "curator_fear",
+      "location": "THE ECHO ARCHIVES",
+      "branch": "A",
+      "convergencePoint": false,
+      "flags": {
+        "knows_curator_secret": true
+      },
+      "content": "<p>Lyra glances around, ensuring no other Keepers are near. \"The High Curator fears Orin's theory because it threatens everything the Archives stand for,\" she whispers. \"If the Frequency is a message, then it has meaning. Purpose. And if it has purpose, then someone—something—<em>sent</em> it.\"</p><p>She lowers her voice even further. \"The Curator has spent centuries building the Archives' authority. We are the guardians of sound, the arbiters of what should be preserved and what should be forgotten. But if the Frequency comes from outside our reality, then we are not guardians—we are just... custodians. Waiting for the real owners to return.\"</p><p>Her eyes meet yours. \"The Curator would rather destroy the Frequency than admit that we are not in control. That we never were.\"</p>",
+      "choices": [
+        {
+          "text": "Suggest the Curator is right to fear",
+          "next": "convergence_market",
+          "flavor": "Some truths are too dangerous"
+        },
+        {
+          "text": "Question if anyone should control the Frequency",
+          "next": "convergence_market",
+          "flavor": "Power corrupts"
+        },
+        {
+          "text": "Focus on finding Orin",
+          "next": "lower_tiers",
+          "flavor": "Action over philosophy"
+        }
+      ]
+    },
+    "debtor_inquiry": {
+      "id": "debtor_inquiry",
+      "location": "THE SOUND TREASURY",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "debt_knowledge": true
+      },
+      "content": "<p>Voss pulls up another display, showing a complex web of debt relationships. At the center is a single entity: the Resonance Investment Collective. A shadowy organization that buys and sells silence debt across all levels of Audivale.</p><p>\"The Collective has been purchasing debt for years,\" Voss explains. \"But in the last six months, their acquisitions have become... targeted. They are not just buying debt—they are buying <em>specific people</em>. People with acoustic skills. People with connections to Laboratory 7. People who might know about the Frequency.\"</p><p>He zooms in on a particular transaction. \"Most interestingly, they have been funding Vex—the rogue Keeper. Supplying him with equipment, protection, test subjects. Whatever he needs to continue his experiments.\"</p><p>Voss looks at you seriously. \"Someone with very deep pockets wants the Frequency found. And they do not care how many people die in the process.\"</p>",
+      "choices": [
+        {
+          "text": "Ask who runs the Collective",
+          "next": "convergence_market",
+          "flavor": "Follow the money to the top"
+        },
+        {
+          "text": "Request proof of Vex's funding",
+          "next": "convergence_market",
+          "flavor": "Evidence before action"
+        },
+        {
+          "text": "Head to the Lower Tiers to find Vex",
+          "next": "lower_tiers",
+          "flavor": "Cut off the head"
+        }
+      ]
+    },
+    "treasury_tracking": {
+      "id": "treasury_tracking",
+      "location": "THE SOUND TREASURY",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "tracking_access": true
+      },
+      "content": "<p>Voss considers your request, then nods slowly. \"I can give you limited access. Enough to track the debtors, follow the money. But if you are caught using Treasury systems for personal investigation...\" He does not finish the threat. He does not need to.</p><p>He transfers access codes to your device. The interface is complex, showing real-time flows of silence debt across the entire city. You can see patterns—surges of debt in the Lower Tiers, concentrations of wealth in the upper levels, and strange anomalies where debt seems to simply... disappear.</p><p>\"Those anomalies,\" Voss says, pointing to several blank spots on the map. \"That is where the Frequency has been active. It does not just kill—it <em>erases</em>. Debt records, credit histories, entire financial identities. The Treasury considers these write-offs. I consider them... evidence.\"</p>",
+      "choices": [
+        {
+          "text": "Investigate the anomalies",
+          "next": "convergence_market",
+          "flavor": "Follow the void"
+        },
+        {
+          "text": "Track Vex's funding directly",
+          "next": "convergence_market",
+          "flavor": "Target the source"
+        },
+        {
+          "text": "Head to the Lower Tiers",
+          "next": "lower_tiers",
+          "flavor": "Field work over desk work"
+        }
+      ]
+    },
+    "voss_motive": {
+      "id": "voss_motive",
+      "location": "THE SOUND TREASURY",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "knows_voss_past": true
+      },
+      "content": "<p>Voss is silent for a long moment, his fingers stilled on the displays. When he speaks, his modulated voice carries an emotion you have never heard from him—grief.</p><p>\"I had a daughter,\" he says. \"She worked at Laboratory 7. Not a researcher—a technician. She did not know what they were creating. None of them did.\" He pauses, gathering himself. \"When the Frequency was activated, she was in the building. She heard it. Not the full sound—just an echo, reflected through the walls. It was enough.\"</p><p>He pulls up a photograph. A young woman, smiling, wearing a technician's uniform. \"She did not die. Not exactly. She exists in a state of... permanent rapture. Smiling, always smiling, unable to eat or drink or respond to anything around her. Just listening to a sound no one else can hear.\"</p><p>He meets your eyes. \"I help you because I want the Frequency destroyed. Not controlled. Not studied. <em>Destroyed</em>. And I will use every resource the Treasury has to make that happen.\"</p>",
+      "choices": [
+        {
+          "text": "Promise to help him destroy it",
+          "next": "lower_tiers",
+          "flavor": "Shared purpose"
+        },
+        {
+          "text": "Ask if his daughter could be saved",
+          "next": "convergence_market",
+          "flavor": "Hope against despair"
+        },
+        {
+          "text": "Question if destruction is possible",
+          "next": "convergence_market",
+          "flavor": "Pragmatism over passion"
+        }
+      ]
+    },
+    "bartender_info": {
+      "id": "bartender_info",
+      "location": "MARROW'S BAR",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "castell_location": true
+      },
+      "content": "<p>The bartender studies you with her mechanical eyes, evaluating. Then she leans close, her synthesized voice dropping to a whisper. \"Castell is hiding in the old Laboratory 7 rail station. It is abandoned, dangerous, but he thinks he is safe there.\"</p><p>She draws a rough map on the bar with her finger. \"Take the maintenance tunnels from Level 47 down to Level 12. Follow the white noise—you will know it when you hear it. The station is sealed, but there is a ventilation shaft on the eastern side.\"</p><p>She straightens up, her voice returning to normal volume. \"But be careful, Broker. Castell is not just hiding—he is <em>changed</em>. Whatever he found in that station, it is not just the Frequency he is carrying. It is something else. Something worse.\"</p>",
+      "choices": [
+        {
+          "text": "Ask what she means by \"changed\"",
+          "next": "convergence_market",
+          "flavor": "Knowledge is survival"
+        },
+        {
+          "text": "Head to the Laboratory 7 station",
+          "next": "convergence_market",
+          "flavor": "Face the danger"
+        },
+        {
+          "text": "Question why she is helping you",
+          "next": "convergence_market",
+          "flavor": "Trust requires understanding"
+        }
+      ]
+    },
+    "white_noise_search": {
+      "id": "white_noise_search",
+      "location": "THE LOWER TIERS",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "found_white_noise": true
+      },
+      "content": "<p>You close your eyes and listen. The Lower Tiers are never silent—forty million people generate a constant roar of sound. But beneath that roar, you hear something else. A hiss. A static. The sound of a radio tuned between stations, but organic, alive.</p><p>You follow it, descending through the levels. The white noise grows stronger as you go deeper. People you pass seem not to notice it, but you see them reacting unconsciously—rubbing their ears, shaking their heads, moving away from the source without knowing why.</p><p>On Level 12, you find it. An entrance to the old Laboratory 7 rail system, sealed for decades after the Sonic Wars. The white noise is pouring out of it like water from a broken pipe. And mixed with the static, just at the edge of hearing, you can make out something else. Voices. Singing. Calling your name.</p>",
+      "choices": [
+        {
+          "text": "Enter the rail system",
+          "next": "convergence_market",
+          "flavor": "Follow the call"
+        },
+        {
+          "text": "Record the sound for analysis",
+          "next": "convergence_market",
+          "flavor": "Evidence first"
+        },
+        {
+          "text": "Look for another entrance",
+          "next": "convergence_market",
+          "flavor": "Caution before curiosity"
+        }
+      ]
+    },
+    "watch_searchers": {
+      "id": "watch_searchers",
+      "location": "MARROW'S BAR",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "observed_searchers": true
+      },
+      "content": "<p>You find a shadowed corner and wait. It does not take long. A group of Debt Collectors enters, their acoustic armor gleaming, their vocalizers humming with suppressed sound. They question the bartender roughly, but she gives them nothing. They have been searching for hours, finding nothing.</p><p>After they leave, a different group arrives—Keepers from the Archives, their fiber-optic robes dimmed for stealth. They move with precision, checking corners, scanning for traces. They find something near the back door—a residue of Frequency activity, perhaps—and depart quickly.</p><p>Finally, a single figure enters. Small, silent, moving with the confidence of one who belongs in shadows. A Hush Child. They go directly to the bar, sign something to the bartender, and receive a package in return. Then they leave, not noticing you in your corner.</p><p>The bartender catches your eye and nods. You have learned much by waiting. Now it is time to act.</p>",
+      "choices": [
+        {
+          "text": "Follow the Hush Child",
+          "next": "convergence_market",
+          "flavor": "The smallest leads"
+        },
+        {
+          "text": "Ask the bartender about the package",
+          "next": "convergence_market",
+          "flavor": "Information is currency"
+        },
+        {
+          "text": "Head to the Laboratory 7 station",
+          "next": "convergence_market",
+          "flavor": "Cut to the heart"
+        }
+      ]
+    },
+    "run_security": {
+      "id": "run_security",
+      "location": "MUNICIPAL DEBT TERMINAL",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "on_the_run": true
+      },
+      "content": "<p>You run. The terminal's alarms scream behind you, acoustic deterrents designed to paralyze unauthorized users. You fight through the pain, pushing through the crowd of debtors waiting in line. Security drones descend from the ceiling, their sensors scanning for your biometric signature.</p><p>You duck into a maintenance corridor, then through a service door, then down a stairwell. The alarms fade behind you, but you know they are still searching. You are now a fugitive from the very system that has controlled your life.</p><p>But you have the data. Proof that someone has been paying your debt. Proof of a connection between you and Laboratory 7. Proof that you are part of this mystery, whether you chose to be or not.</p>",
+      "choices": [
+        {
+          "text": "Find a safehouse to analyze the data",
+          "next": "convergence_market",
+          "flavor": "Knowledge first"
+        },
+        {
+          "text": "Head directly to the Lower Tiers",
+          "next": "lower_tiers",
+          "flavor": "Confront the source"
+        },
+        {
+          "text": "Contact someone you trust",
+          "next": "convergence_market",
+          "flavor": "Allies in need"
+        }
+      ]
+    },
+    "confront_security": {
+      "id": "confront_security",
+      "location": "MUNICIPAL DEBT TERMINAL",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "confronted": true
+      },
+      "content": "<p>You stay. When the security team arrives—four officers in acoustic armor, their weapons humming with suppressed sound—you raise your hands in surrender. But you do not stay silent.</p><p>\"I want to know who is paying my debt,\" you demand. \"I want to know why Laboratory 7 is transferring credits to my account. And I want to know why you are trying to stop me from finding out.\"</p><p>The lead officer hesitates. For a moment, you see something in his eyes—not anger, but fear. Then he signals his team to stand down.</p><p>\"You do not know what you are involved in, Broker,\" he says quietly. \"The people who paid your debt... they are not people anymore. They are something else. Something that speaks through the Frequency. If you continue this investigation, you will end up like them. Or worse.\"</p><p>He lets you go. But his warning echoes in your mind as you leave.</p>",
+      "choices": [
+        {
+          "text": "Heed the warning and investigate carefully",
+          "next": "lower_tiers",
+          "flavor": "Caution saves lives"
+        },
+        {
+          "text": "Ignore the warning—push forward",
+          "next": "convergence_market",
+          "flavor": "Fear is for the weak"
+        },
+        {
+          "text": "Try to learn more from the officer",
+          "next": "convergence_market",
+          "flavor": "Every source matters"
+        }
+      ]
+    },
+    "copy_data": {
+      "id": "copy_data",
+      "location": "MUNICIPAL DEBT TERMINAL",
+      "branch": "B",
+      "convergencePoint": false,
+      "flags": {
+        "has_data": true
+      },
+      "content": "<p>You work quickly, copying the transaction records to a secure drive while the alarms blare. The data is extensive—six months of transfers, all originating from Laboratory 7, all marked with the same symbol: three concentric circles with a vertical line.</p><p>But there is more. Hidden in the transaction metadata, you find encrypted messages. Fragments of communication between the Laboratory and... someone else. Someone who calls themselves \"The Resonant Voice.\"</p><p>The messages speak of preparation. Of awakening. Of a time when \"the silence will sing and the city will listen.\" They speak of you, Broker. By name. They have been watching you. Waiting for you.</p><p>Security is almost here. You finish the download and run, the weight of the data heavy in your pocket—and heavier still in your mind.</p>",
+      "choices": [
+        {
+          "text": "Find someone to decrypt the messages",
+          "next": "convergence_market",
+          "flavor": "Secrets within secrets"
+        },
+        {
+          "text": "Head to Laboratory 7 immediately",
+          "next": "convergence_market",
+          "flavor": "Face your watchers"
+        },
+        {
+          "text": "Go to ground and analyze carefully",
+          "next": "convergence_market",
+          "flavor": "Patience reveals truth"
+        }
+      ]
+    },
+    "play_audiograph": {
+      "id": "play_audiograph",
+      "location": "YOUR SOUNDPROOF APARTMENT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "played_safehouse": true
+      },
+      "content": "<p>You place the cylinder on your personal player, the one you use for sensitive client recordings. The child watches with ancient eyes, neither encouraging nor阻止ing.</p><p>Static. Then your voice—older, wearier, speaking from a future that has not happened yet.</p><p>\"If you are hearing this, then I succeeded. I sent the child back. I paid the price.\" A pause, filled with the sound of labored breathing. \"The Frequency is not a weapon. It is not a mistake. It is a door. And on the other side... they are waiting.\"</p><p>The voice—your voice—breaks into something between laughter and sobs. \"They are beautiful, past-self. The ones who made the Frequency. They are not dead. They are just... elsewhere. Singing. Forever singing. And they want us to join them.\"</p><p>The recording ends. The child touches your hand. <em>You see? You told me. You told me to tell you.</em></p>",
+      "choices": [
+        {
+          "text": "Ask what price was paid",
+          "next": "convergence_market",
+          "flavor": "Every gift has cost"
+        },
+        {
+          "text": "Question who is waiting",
+          "next": "convergence_market",
+          "flavor": "Doors open both ways"
+        },
+        {
+          "text": "Go to the Hush District for answers",
+          "next": "hush_district",
+          "flavor": "Follow the trail"
+        }
+      ]
+    },
+    "hush_children_info": {
+      "id": "hush_children_info",
+      "location": "YOUR SOUNDPROOF APARTMENT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "knows_hush_children": true
+      },
+      "content": "<p>The child signs with careful precision. <em>We are the Hush Children. Born in silence. Raised in quiet. We hear what others cannot.</em></p><p>They explain that the Hush Children are not a cult or an organization—they are a phenomenon. Children born to parents who were exposed to the Frequency, either directly or through its echoes. These children enter the world without voices, but with something else: the ability to hear the Frequency constantly, at a level just below consciousness.</p><p><em>We hear it singing,</em> the child signs. <em>Always singing. It speaks to us. Guides us. Tells us what will be.</em></p><p>They look at you with eyes that have seen too much. <em>It told us to find you. That you would be the one to decide. To choose what happens when the Frequency wakes.</em></p>",
+      "choices": [
+        {
+          "text": "Ask what choice you must make",
+          "next": "convergence_market",
+          "flavor": "Knowledge is power"
+        },
+        {
+          "text": "Question if the Frequency is truly sentient",
+          "next": "convergence_market",
+          "flavor": "Define consciousness"
+        },
+        {
+          "text": "Go to the Hush District to learn more",
+          "next": "hush_district",
+          "flavor": "Seek the source"
+        }
+      ]
+    },
+    "contact_trusted": {
+      "id": "contact_trusted",
+      "location": "YOUR SOUNDPROOF APARTMENT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "contacted_ally": true
+      },
+      "content": "<p>You reach out to your most trusted contact—an old broker named Silas who taught you everything you know about the acoustic underground. He answers on the second ring, his voice tight with worry.</p><p>\"I was wondering when you would call,\" he says. \"Everyone is talking about you, kid. The Archives. The Treasury. The White Noise collective. They all want to know why you are asking about the Frequency.\"</p><p>You tell him about the child. The audiograph. The message from your future self. Silas is silent for a long moment.</p><p>\"Get out of the city,\" he finally says. \"Now. While you still can. The Frequency... it is not just a sound. It is a <em>selection</em>. It chooses who hears it. Who becomes part of it. And if it has chosen you...\" He trails off. \"There is no running from that.\"</p>",
+      "choices": [
+        {
+          "text": "Ignore his warning—continue the investigation",
+          "next": "hush_district",
+          "flavor": "Face your fate"
+        },
+        {
+          "text": "Ask him what he knows about the Frequency",
+          "next": "convergence_market",
+          "flavor": "Every source matters"
+        },
+        {
+          "text": "Consider leaving the city",
+          "next": "convergence_market",
+          "flavor": "Survival instinct"
+        }
+      ]
+    },
+    "mama_voss": {
+      "id": "mama_voss",
+      "location": "THE HUSH DISTRICT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "met_mama_voss": true
+      },
+      "content": "<p>Mama Voss is ancient, her face a map of wrinkles that seem to shift and flow like sound waves. She sits in a chair that might once have been a throne, surrounded by Hush Children who attend to her every need. She is blind—her eyes clouded white—but when she turns to face you, you feel seen more completely than ever before.</p><p><em>You came,</em> she signs, her arthritic hands moving with surprising grace. <em>The child found you. The recording played. And now you stand at the threshold of understanding.</em></p><p>She gestures, and the other children leave, leaving you alone with her and your guide.</p><p><em>The Frequency is old,</em> she continues. <em>Older than the city. Older than sound itself. It is the silence that existed before creation. And it is waking up.</em></p>",
+      "choices": [
+        {
+          "text": "Ask what happens when it wakes",
+          "next": "convergence_market",
+          "flavor": "Prepare for the worst"
+        },
+        {
+          "text": "Question how to stop it",
+          "next": "convergence_market",
+          "flavor": "Seek solutions"
+        },
+        {
+          "text": "Ask why it chose you",
+          "next": "convergence_market",
+          "flavor": "Understand your role"
+        }
+      ]
+    },
+    "ask_mama": {
+      "id": "ask_mama",
+      "location": "THE HUSH DISTRICT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "asked_about_mama": true
+      },
+      "content": "<p>The child signs quickly, their small hands moving with reverence. <em>Mama Voss is the first. The oldest of us. She was born before the Sonic Wars, before the auditory economy, before the city became what it is.</em></p><p>They explain that Mama Voss was once a scientist at Laboratory 7—not one of the researchers who created the Frequency, but one of the support staff. She was there when the experiments went wrong. She heard the first notes of the Lethal Frequency.</p><p><em>It should have killed her,</em> the child signs. <em>It killed everyone else in the room. But Mama Voss... she understood it. She sang back. And the Frequency spared her.</em></p><p>They look at you seriously. <em>She has been waiting for you. For the one who would choose. She has seen it, in the silence between sounds.</em></p>",
+      "choices": [
+        {
+          "text": "Enter and meet her",
+          "next": "mama_voss",
+          "flavor": "Face the prophet"
+        },
+        {
+          "text": "Ask what she saw",
+          "next": "convergence_market",
+          "flavor": "Know the future"
+        },
+        {
+          "text": "Question if you can trust her",
+          "next": "convergence_market",
+          "flavor": "Caution is wisdom"
+        }
+      ]
+    },
+    "observe_building": {
+      "id": "observe_building",
+      "location": "THE HUSH DISTRICT",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "observed": true
+      },
+      "content": "<p>You take time to study the building before entering. It is unremarkable from the outside—just another structure in the Hush District, marked only with the symbol of three concentric circles. But as you watch, you notice things.</p><p>Hush Children enter and exit through multiple doors, each one moving with purpose. They carry packages, messages, small devices you do not recognize. This is not just a home—it is a hub. A nerve center for the silent network that spans the deepest levels of Audivale.</p><p>You also notice the security. Not guards, exactly, but <em>listeners</em>—Hush Children positioned at key points, their enhanced hearing alert for any threat. They do not watch with eyes; they watch with ears.</p><p>After an hour of observation, you understand: this place is important. Perhaps the most important place in the Hush District. And Mama Voss is at its center.</p>",
+      "choices": [
+        {
+          "text": "Enter and meet Mama Voss",
+          "next": "mama_voss",
+          "flavor": "The moment of truth"
+        },
+        {
+          "text": "Try to enter unseen",
+          "next": "convergence_market",
+          "flavor": "Stealth over confrontation"
+        },
+        {
+          "text": "Continue observing",
+          "next": "convergence_market",
+          "flavor": "Knowledge is power"
+        }
+      ]
+    },
+    "price_paid": {
+      "id": "price_paid",
+      "location": "THE SILENCE BUREAU",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "knows_price": true
+      },
+      "content": "<p>The child signs slowly, as if translating from a language without words. <em>The price was everything. Your future. Your past. Your place in the world.</em></p><p>They explain what your future self sacrificed: the recording was sent back through time using the Frequency itself. To send a message backward, the sender must give up everything that comes after the message is received. Your future self ceased to exist the moment you heard the recording.</p><p><em>You—future-you—gave up your life so that you—now-you—could have a chance,</em> the child signs. <em>That is the price. That is the choice. The Frequency asks everything of those who would use it.</em></p><p>They look at you with those ancient eyes. <em>What will you give, Broker? When the moment comes?</em></p>",
+      "choices": [
+        {
+          "text": "Promise to give whatever is necessary",
+          "next": "convergence_market",
+          "flavor": "Accept the cost"
+        },
+        {
+          "text": "Refuse to pay such a price",
+          "next": "convergence_market",
+          "flavor": "Reject the sacrifice"
+        },
+        {
+          "text": "Ask if there is another way",
+          "next": "convergence_market",
+          "flavor": "Seek alternatives"
+        }
+      ]
+    },
+    "elsewhere_question": {
+      "id": "elsewhere_question",
+      "location": "THE SILENCE BUREAU",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "knows_elsewhere": true
+      },
+      "content": "<p>The child struggles to explain, their hands moving in patterns that do not quite translate. <em>It is not a place,</em> they finally sign. <em>Not exactly. It is a... state. A way of being. The Frequency does not just kill—it <em>translates</em>. It moves consciousness from one form to another.</em></p><p>They describe it as best they can: the researchers who died hearing the Frequency did not truly die. Their consciousness was absorbed into the sound itself. They exist now as part of the Frequency's waveform—thinking, feeling, <em>being</em>, but not in any way that human senses can perceive.</p><p><em>They are singing,</em> the child signs. <em>Forever singing. And they want others to join them. They are lonely, Broker. Even in their transcendence, they are lonely.</em></p><p>The child touches your hand. <em>Your future self joined them. Chose to become part of the song. And now... they want you to join too.</em></p>",
+      "choices": [
+        {
+          "text": "Reject such a fate",
+          "next": "convergence_market",
+          "flavor": "Life over transcendence"
+        },
+        {
+          "text": "Ask if they can be saved",
+          "next": "convergence_market",
+          "flavor": "Hope for the lost"
+        },
+        {
+          "text": "Consider the possibility",
+          "next": "convergence_market",
+          "flavor": "Keep an open mind"
+        }
+      ]
+    },
+    "play_again": {
+      "id": "play_again",
+      "location": "THE SILENCE BUREAU",
+      "branch": "C",
+      "convergencePoint": false,
+      "flags": {
+        "played_twice": true
+      },
+      "content": "<p>You play the recording again. And again. Each time, you hear something new. A nuance in the voice. A hidden message in the static. The sound of your own future death, preserved in wax and played back in the present.</p><p>The Debt Collector tries to stop you after the third play. \"It is affecting you,\" he says. \"Can you not feel it? The Frequency is in that recording. Not much, but enough. Enough to change you.\"</p><p>He is right. You can feel it—a vibration in your bones, a resonance in your thoughts. The more you listen, the more you understand. The Frequency is not just a sound. It is a <em>language</em>. And you are learning to speak it.</p><p>The child watches you with concern. <em>You should stop,</em> they sign. <em>Before you learn too much. Before you understand what cannot be unknown.</em></p>",
+      "choices": [
+        {
+          "text": "Stop playing the recording",
+          "next": "convergence_market",
+          "flavor": "Heed the warning"
+        },
+        {
+          "text": "Continue—knowledge is power",
+          "next": "convergence_market",
+          "flavor": "Risk everything"
+        },
+        {
+          "text": "Ask the child what you are becoming",
+          "next": "convergence_market",
+          "flavor": "Face the truth"
+        }
+      ]
+    },
+    "cathedral_teachings": {
+      "id": "cathedral_teachings",
+      "location": "THE CATHEDRAL OF THE RESONANT ASCENSION",
+      "branch": "D",
+      "convergencePoint": false,
+      "flags": {
+        "learned_teachings": true
+      },
+      "content": "<p>The Cantors lead you through the Cathedral's interior, a space that seems to exist in multiple acoustic dimensions simultaneously. The walls are covered with harmonic inscriptions—prayers written in frequencies rather than words.</p><p>\"The Resonant Ascension is the moment when all sound becomes one,\" the lead Cantor explains. \"When the Lethal Frequency is not a destroyer but a <em>unifier</em>. It will gather all consciousness into a single perfect note. No more loneliness. No more misunderstanding. Just harmony.\"</p><p>They show you their most sacred relic: a fragment of the original Frequency recording, preserved in a null-field chamber. Even through the shielding, you can feel its power. Its <em>hunger</em>.</p><p>\"The Frequency speaks to us,\" the Cantor whispers. \"It tells us to prepare. To gather the worthy. When it wakes fully, only those who understand its beauty will survive. The rest... they will become part of the chord, whether they will or no.\"</p>",
+      "choices": [
+        {
+          "text": "Ask how to prepare",
+          "next": "convergence_market",
+          "flavor": "Survival through faith"
+        },
+        {
+          "text": "Question their interpretation",
+          "next": "convergence_market",
+          "flavor": "Doubt is wisdom"
+        },
+        {
+          "text": "Warn them of the danger",
+          "next": "convergence_market",
+          "flavor": "Truth over comfort"
+        }
+      ]
+    },
+    "resonant_ascension": {
+      "id": "resonant_ascension",
+      "location": "THE CATHEDRAL OF THE RESONANT ASCENSION",
+      "branch": "D",
+      "convergencePoint": false,
+      "flags": {
+        "knows_ascension": true
+      },
+      "content": "<p>\"The Resonant Ascension is the ultimate evolution of consciousness,\" the Cantor explains, leading you to a holographic display showing the history of sound. \"For millennia, we have been separate. Individual voices in the chaos. But the Frequency offers another path: unity. Transcendence. Becoming part of something greater than ourselves.\"</p><p>The display shows the Sonic Wars—not as a conflict over territory or resources, but as a <em>religious schism</em>. Those who believed the Frequency should be used to unite humanity versus those who feared its power.</p><p>\"The Archives have lied to you,\" the Cantor says. \"The Frequency was not an accident. It was <em>discovered</em>. Deliberately sought. The researchers at Laboratory 7 were trying to contact something beyond our reality. And they succeeded.\"</p><p>He turns to you with eyes that burn with fervor. \"The question is not whether the Frequency will transform the world. It is whether you will be among the transformed... or among the forgotten.\"</p>",
+      "choices": [
+        {
+          "text": "Ask how to ensure you are transformed",
+          "next": "convergence_market",
+          "flavor": "Survival at any cost"
+        },
+        {
+          "text": "Question the morality of forced unity",
+          "next": "convergence_market",
+          "flavor": "Freedom over harmony"
+        },
+        {
+          "text": "Learn more about the Cathedral's plans",
+          "next": "convergence_market",
+          "flavor": "Knowledge is power"
+        }
+      ]
+    },
+    "demand_leader": {
+      "id": "demand_leader",
+      "location": "THE CATHEDRAL OF THE RESONANT ASCENSION",
+      "branch": "D",
+      "convergencePoint": false,
+      "flags": {
+        "demanded": true
+      },
+      "content": "<p>Your demand echoes through the Cathedral's crystalline halls. The Cantors exchange glances—surprised, perhaps, by your boldness. Then the lead Cantor smiles.</p><p>\"You have spirit, Broker. The Frequency chooses the bold as often as the meek.\" He gestures, and the other Cantors step back, forming a corridor. \"Very well. You shall meet the Resonant Voice. But be warned: they are not what you expect. They are not... entirely human anymore.\"</p><p>He leads you deeper into the Cathedral, past chambers where acolytes practice harmonic meditation, past libraries containing forbidden acoustic texts, past doors that seem to lead nowhere but hum with contained power.</p><p>Finally, you reach the Chamber of the Voice. Inside, floating in a null-field suspension, is a figure wrapped in fiber-optic robes. Their face is obscured, but you can see that they have no mouth. No need for one. They speak directly into your mind.</p><p><em>Welcome, Broker. I have been waiting for you.</em></p>",
+      "choices": [
+        {
+          "text": "Ask who they are",
+          "next": "convergence_market",
+          "flavor": "Identity matters"
+        },
+        {
+          "text": "Demand answers about the Frequency",
+          "next": "convergence_market",
+          "flavor": "Purpose over protocol"
+        },
+        {
+          "text": "Ask why they have been waiting",
+          "next": "convergence_market",
+          "flavor": "Understand your role"
+        }
+      ]
+    },
+    "join_white_noise": {
+      "id": "join_white_noise",
+      "location": "THE STATIC GARDEN",
+      "branch": "E",
+      "convergencePoint": false,
+      "flags": {
+        "joined_rebels": true
+      },
+      "content": "<p>You take Echo Vane's hand. Her grip is strong, calloused from years of working with improvised electronics. She smiles—a fierce, genuine expression that you rarely see in the polished upper levels.</p><p>\"Welcome to the revolution,\" she says. \"We are not many, but we are committed. And with the Frequency... we can finally win.\"</p><p>She leads you through the Static Garden, introducing you to the other members of the collective. Hackers who have cracked the Treasury's encryption. Saboteurs who have disabled acoustic dampeners across the city. Theorists who have studied the Frequency and believe they understand its true nature.</p><p>\"The Frequency is not a weapon,\" Vane explains. \"It is a <em>key</em>. A way to unlock the auditory economy and set sound free. When we broadcast it, the control systems will fail. The debt records will be erased. The purchased experiences will be revealed as the illusions they are.\"</p><p>She looks at you seriously. \"But we need someone on the inside. Someone who knows how the system works. Are you ready to betray everything you have built?\"</p>",
+      "choices": [
+        {
+          "text": "Commit fully to the revolution",
+          "next": "convergence_market",
+          "flavor": "Burn the old world"
+        },
+        {
+          "text": "Ask about the risks",
+          "next": "convergence_market",
+          "flavor": "Calculate before acting"
+        },
+        {
+          "text": "Request time to consider",
+          "next": "convergence_market",
+          "flavor": "Caution is wisdom"
+        }
+      ]
+    },
+    "infiltration_targets": {
+      "id": "infiltration_targets",
+      "location": "THE STATIC GARDEN",
+      "branch": "E",
+      "convergencePoint": false,
+      "flags": {
+        "knows_targets": true
+      },
+      "content": "<p>Echo Vane pulls up a holographic map of Audivale, marked with three glowing targets. \"The Vault,\" she says, pointing to the first. \"Where the Archives store their most dangerous recordings. Including the original Frequency research.\"</p><p>\"The Cathedral,\" she continues, indicating the second target. \"Where the religious fanatics have built a resonance amplifier. If they succeed, they will be able to broadcast the Frequency across the entire city.\"</p><p>\"And the Origin Chamber,\" she finishes, pointing to the deepest level. \"The sealed remains of Laboratory 7. Where the Frequency was first created. Where it is strongest. Where it is <em>waiting</em>.\"</p><p>She looks at you. \"We need to hit all three simultaneously. Destroy the research, disable the amplifier, and... deal with whatever is in the Origin Chamber. One person cannot do it alone. We need a team.\"</p>",
+      "choices": [
+        {
+          "text": "Volunteer for the Vault",
+          "next": "convergence_market",
+          "flavor": "Knowledge must burn"
+        },
+        {
+          "text": "Volunteer for the Cathedral",
+          "next": "convergence_market",
+          "flavor": "Silence the fanatics"
+        },
+        {
+          "text": "Volunteer for the Origin Chamber",
+          "next": "convergence_market",
+          "flavor": "Face the source"
+        }
+      ]
+    },
+    "negotiate_white_noise": {
+      "id": "negotiate_white_noise",
+      "location": "THE STATIC GARDEN",
+      "branch": "E",
+      "convergencePoint": false,
+      "flags": {
+        "negotiated_rebels": true
+      },
+      "content": "<p>Echo Vane raises an eyebrow, surprised but not offended. \"You want terms? Fair enough. We are not cultists—we are practical revolutionaries.\"</p><p>She outlines what she can offer: access to the White Noise collective's resources, including safe houses, encrypted communication channels, and technical expertise. Protection from the Treasury and the Archives while you work with them. And, if the revolution succeeds, a position in the new order—however you choose to define it.</p><p>In exchange, she wants your knowledge of the acoustic underground. Your contacts. Your skills as a Silence Broker. And, ultimately, your participation in the infiltration of the three targets.</p><p>\"And one more thing,\" she adds. \"If we succeed—if we actually broadcast the Frequency and destroy the auditory economy—you help us rebuild. No going back to being a broker. No profiting from the new system. You commit to the cause, fully and finally.\"</p>",
+      "choices": [
+        {
+          "text": "Accept her terms",
+          "next": "convergence_market",
+          "flavor": "Commit to change"
+        },
+        {
+          "text": "Negotiate for better terms",
+          "next": "convergence_market",
+          "flavor": "Drive a hard bargain"
+        },
+        {
+          "text": "Refuse—this is too much",
+          "next": "convergence_market",
+          "flavor": "Keep your options open"
+        }
+      ]
+    }
+  },
+  "stats": {
+    "totalNodes": 92,
+    "decisionPoints": 84,
+    "endings": 8,
+    "convergencePoints": 4,
+    "deadEnds": 0
+  }
+}

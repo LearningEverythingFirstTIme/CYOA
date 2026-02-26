@@ -1,0 +1,207 @@
+/* Base Theme - Default styling for CYOA Platform */
+
+:root {
+  /* Base colors */
+  --color-bg: #1a1a2e;
+  --color-bg-alt: #16213e;
+  --color-text: #eaeaea;
+  --color-text-dim: #a0a0a0;
+  --color-primary: #e94560;
+  --color-secondary: #0f3460;
+  --color-accent: #533483;
+  
+  /* Typography */
+  --font-heading: 'Georgia', serif;
+  --font-body: 'system-ui', -apple-system, sans-serif;
+  --font-mono: 'SF Mono', Monaco, monospace;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Layout */
+  --max-width: 800px;
+  --border-radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+.subtitle {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+/* Story Card */
+.story-card {
+  background: var(--color-bg-alt);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.location-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-md);
+}
+
+.story-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.story-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.story-content p:first-child::first-letter {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  float: left;
+  line-height: 1;
+  margin-right: 0.5rem;
+  color: var(--color-primary);
+}
+
+/* Choices */
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.choice-btn {
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-text);
+  padding: var(--spacing-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.choice-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateX(5px);
+}
+
+.choice-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.choice-btn:hover .choice-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Ending Screen */
+.ending-screen {
+  text-align: center;
+}
+
+.ending-theme {
+  font-style: italic;
+  color: var(--color-text-dim);
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  border-left: 3px solid var(--color-primary);
+  text-align: left;
+}
+
+.restart-btn {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  transition: opacity 0.2s;
+}
+
+.restart-btn:hover {
+  opacity: 0.9;
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 100;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  .story-card {
+    padding: var(--spacing-md);
+  }
+}

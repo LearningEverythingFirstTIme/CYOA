@@ -1,0 +1,256 @@
+/* Blade Runner Theme - Cyberpunk Noir Aesthetic */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  /* Blade Runner Color Palette */
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff006e;
+  --neon-amber: #ff9f1c;
+  --deep-black: #0a0a0f;
+  --void-black: #050508;
+  --panel-bg: rgba(10, 10, 15, 0.85);
+  --grid-line: rgba(0, 240, 255, 0.1);
+  --text-dim: rgba(255, 255, 255, 0.6);
+  --text-bright: rgba(255, 255, 255, 0.95);
+  
+  /* Override base variables */
+  --color-bg: var(--void-black);
+  --color-bg-alt: var(--panel-bg);
+  --color-text: var(--text-bright);
+  --color-text-dim: var(--text-dim);
+  --color-primary: var(--neon-cyan);
+  --color-secondary: var(--neon-pink);
+  --color-accent: var(--neon-amber);
+  
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
+
+/* Animated grid background */
+body.theme-blade-runner {
+  background: var(--void-black);
+  position: relative;
+}
+
+body.theme-blade-runner::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+}
+
+/* Scanline overlay */
+body.theme-blade-runner::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.3;
+}
+
+.theme-blade-runner .container {
+  position: relative;
+  z-index: 10;
+}
+
+/* Header styling */
+.theme-blade-runner h1 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, var(--text-bright) 0%, var(--neon-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+}
+
+.theme-blade-runner .subtitle {
+  font-family: var(--font-mono);
+  color: var(--neon-pink);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+}
+
+/* Story card with neon border */
+.theme-blade-runner .story-card {
+  background: var(--panel-bg);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 60px rgba(0, 240, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-blade-runner .story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Location tag */
+.theme-blade-runner .location-tag {
+  font-family: var(--font-mono);
+  color: var(--neon-amber);
+  letter-spacing: 0.3em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-blade-runner .location-tag::before {
+  content: '▸';
+  color: var(--neon-cyan);
+}
+
+/* Story content */
+.theme-blade-runner .story-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.theme-blade-runner .story-content p:first-child::first-letter {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  float: left;
+  line-height: 1;
+  margin-right: 15px;
+  margin-top: -5px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+}
+
+/* Choice buttons with hover effects */
+.theme-blade-runner .choice-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: var(--text-bright);
+  font-family: var(--font-body);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.theme-blade-runner .choice-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.theme-blade-runner .choice-btn:hover::before {
+  left: 100%;
+}
+
+.theme-blade-runner .choice-btn::after {
+  content: '→';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neon-cyan);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.theme-blade-runner .choice-btn:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+  padding-right: 50px;
+}
+
+.theme-blade-runner .choice-btn:hover::after {
+  opacity: 1;
+  right: 15px;
+}
+
+.theme-blade-runner .choice-label {
+  font-family: var(--font-mono);
+  color: var(--neon-pink);
+  letter-spacing: 0.2em;
+}
+
+/* Ending screen */
+.theme-blade-runner .ending-screen .location-tag {
+  color: var(--neon-pink);
+  font-size: 1.2rem;
+}
+
+.theme-blade-runner .ending-theme {
+  font-family: var(--font-mono);
+  color: var(--neon-amber);
+  border-left: none;
+  border-top: 1px solid rgba(0, 240, 255, 0.3);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  padding: var(--spacing-md);
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.theme-blade-runner .restart-btn {
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-family: var(--font-heading);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.theme-blade-runner .restart-btn:hover {
+  background: var(--neon-cyan);
+  color: var(--void-black);
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+}
+
+/* Progress bar gradient */
+.theme-blade-runner .progress-fill {
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+  box-shadow: 0 0 10px var(--neon-cyan);
+}

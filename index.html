@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYOA Platform</title>
+  <link rel="stylesheet" href="src/themes/base.css">
+  <link rel="stylesheet" href="src/themes/blade-runner.css">
+</head>
+<body>
+  <div class="rain-container" id="rain"></div>
+  
+  <div class="container">
+    <header class="header">
+      <h1 id="story-title">Loading...</h1>
+      <div class="subtitle" id="story-subtitle"></div>
+    </header>
+    
+    <main id="story-container">
+      <p>Loading story...</p>
+    </main>
+  </div>
+  
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress"></div>
+  </div>
+
+  <script src="src/engine/engine.js"></script>
+  <script>
+    // Initialize the engine
+    const engine = new CYOAEngine();
+    
+    // Get story from URL or default
+    const pathMatch = window.location.pathname.match(/\/story\/([^/]+)/);
+    const storyId = pathMatch ? pathMatch[1] : 'silence-bureau';
+    
+    engine.init('story-container', `dist/stories/${storyId}.json`)
+      .then(() => {
+        // Update header with story metadata
+        if (engine.story.meta) {
+          document.getElementById('story-title').textContent = 
+            engine.story.meta.title || 'Interactive Story';
+          document.getElementById('story-subtitle').textContent = 
+            engine.story.meta.description || '';
+        }
+      })
+      .catch(err => {
+        document.getElementById('story-container').innerHTML = `
+          <div class="story-card error">
+            <h2>Failed to Load Story</h2>
+            <p>${err.message}</p>
+            <p>Available stories:</p>
+            <ul id="story-list"></ul>
+          </div>
+        `;
+        
+        // Try to list available stories
+        fetch('dist/stories/index.json')
+          .then(r => r.json())
+          .then(index => {
+            const list = document.getElementById('story-list');
+            index.stories.forEach(story => {
+              const li = document.createElement('li');
+              li.innerHTML = `<a href="/story/${story.id}">${story.title}</a> - ${story.description || ''}`;
+              list.appendChild(li);
+            });
+          })
+          .catch(() => {
+            document.getElementById('story-list').innerHTML = '<li>Could not load story index</li>';
+          });
+      });
+    
+    // Create rain effect for blade-runner theme
+    function createRain() {
+      const container = document.getElementById('rain');
+      if (!container) return;
+      
+      for (let i = 0; i < 50; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'rain-drop';
+        drop.style.left = Math.random() * 100 + '%';
+        drop.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+        drop.style.animationDelay = Math.random() * 2 + 's';
+        container.appendChild(drop);
+      }
+    }
+    
+    // Add rain styles
+    const rainStyles = document.createElement('style');
+    rainStyles.textContent = `
+      .rain-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .rain-drop {
+        position: absolute;
+        width: 1px;
+        height: 20px;
+        background: linear-gradient(transparent, rgba(0, 240, 255, 0.3));
+        animation: rainFall linear infinite;
+      }
+      @keyframes rainFall {
+        0% { transform: translateY(-100vh); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(100vh); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(rainStyles);
+    createRain();
+  </script>
+</body>
+</html>

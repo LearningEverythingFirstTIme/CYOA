@@ -1,0 +1,23 @@
+{
+  "stories": [
+    {
+      "id": "silence-bureau",
+      "title": "The Silence Bureau",
+      "author": "Nick",
+      "description": "A Blade Runner aesthetic CYOA about sound, silence, and the lethal frequency that could end it all",
+      "theme": "blade-runner",
+      "stats": {
+        "totalNodes": 12,
+        "decisionPoints": 7,
+        "endings": 5,
+        "deadEnds": 0
+      }
+    }
+  ],
+  "meta": {
+    "builtAt": "2026-02-26T20:49:16.265Z",
+    "totalStories": 1,
+    "totalNodes": 12,
+    "totalEndings": 5
+  }
+}
