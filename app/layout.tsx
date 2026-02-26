@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { GameProvider } from '@/app/contexts/GameContext';
+import './tailwind.css';
 import './globals.css';
 
 export const metadata: Metadata = {
