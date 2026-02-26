@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useGame, unlockEnding, recordNPC } from '@/app/contexts/GameContext';
 import { useAtmosphere, getBranchFromNodeId } from '@/app/hooks/useAtmosphere';
-import { ParagraphTypewriter } from '@/app/hooks/useTypewriter';
+import { ParagraphTypewriter } from '@/app/components/Typewriter';
 import { ChoiceContainer } from '@/app/components/Choice';
 import { StoryMap } from '@/app/components/StoryMap';
 import { JourneyVisualization } from '@/app/components/JourneyVisualization';
