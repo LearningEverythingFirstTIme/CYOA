@@ -259,6 +259,32 @@ export function StoryMap({ nodes, isOpen, onClose }: StoryMapProps) {
   }, []);
 
   if (!isOpen || !layout) return null;
+  
+  // Handle empty layout case (e.g., when filter excludes all nodes)
+  if (layout.nodes.size === 0) {
+    return (
+      <div className={styles.storyMapOverlay}>
+        <div className={styles.storyMapContainer}>
+          <div className={styles.mapHeader}>
+            <div>
+              <h2 className={styles.mapTitle}>STORY MAP</h2>
+              <p className={styles.mapSubtitle}>No nodes match the current filter</p>
+            </div>
+            <button className={styles.closeButton} onClick={onClose}>✕</button>
+          </div>
+          <div className={styles.emptyFilterState}>
+            <p>Try selecting a different branch or clearing filters.</p>
+            <button 
+              className={styles.jumpButton}
+              onClick={() => setActiveBranchFilter('all')}
+            >
+              Show All Branches
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const visitedNodes = new Set([...state.history, state.currentNodeId]);
   const totalNodes = Object.keys(nodes).length;

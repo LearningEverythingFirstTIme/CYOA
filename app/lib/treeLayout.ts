@@ -324,6 +324,14 @@ export function calculateTreeLayout(
     maxY = Math.max(maxY, node.y + node.height);
   }
   
+  // Handle empty layout case
+  if (!isFinite(minX) || !isFinite(maxX) || !isFinite(minY) || !isFinite(maxY)) {
+    minX = 0;
+    maxX = NODE_WIDTH + 160;
+    minY = 0;
+    maxY = NODE_HEIGHT + 160;
+  }
+  
   // Add padding
   const padding = 80;
   minX -= padding;
