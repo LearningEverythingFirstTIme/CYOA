@@ -25,7 +25,7 @@ type GameAction =
 
 const initialState: GameState = {
   currentNodeId: 'start',
-  history: [],
+  history: ['start'],
   flags: {},
   branch: 'neutral',
   startTime: Date.now(),
@@ -59,12 +59,15 @@ function gameReducer(state: GameState, action: GameAction): GameState {
         choicesMade: [...state.choicesMade, choiceRecord],
       };
     }
-    case 'SET_NODE':
+    case 'SET_NODE': {
+      // Only add to history if it's a new node not already at the end
+      const isDuplicate = state.history.length > 0 && state.history[state.history.length - 1] === action.payload;
       return {
         ...state,
         currentNodeId: action.payload,
-        history: [...state.history, state.currentNodeId],
+        history: isDuplicate ? state.history : [...state.history, action.payload],
       };
+    }
     case 'REWIND': {
       const steps = action.payload;
       if (state.history.length < steps) return state;
