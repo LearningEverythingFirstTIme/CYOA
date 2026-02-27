@@ -54,11 +54,13 @@ function TreeNodeComponent({
   visitedNodes,
   currentNodeId,
   onNodeClick,
+  pathEdges,
 }: {
   treeNode: TreeNode;
   visitedNodes: string[];
   currentNodeId: string;
   onNodeClick: (id: string) => void;
+  pathEdges: Set<string>;
 }) {
   const isVisited = visitedNodes.includes(treeNode.id);
   const isCurrent = treeNode.id === currentNodeId;
@@ -85,21 +87,26 @@ function TreeNodeComponent({
       
       {treeNode.children.length > 0 && (
         <div className="flex gap-4 mt-4">
-          {treeNode.children.map((child) => (
-            <div key={child.id} className="relative">
-              {/* Connection line */}
-              <div className={`
-                absolute -top-4 left-1/2 w-px h-4 -translate-x-1/2
-                ${visitedNodes.includes(child.id) ? 'bg-cyan-400/50' : 'bg-white/10'}
-              `} />
-              <TreeNodeComponent
-                treeNode={child}
-                visitedNodes={visitedNodes}
-                currentNodeId={currentNodeId}
-                onNodeClick={onNodeClick}
-              />
-            </div>
-          ))}
+          {treeNode.children.map((child) => {
+            const edgeKey = `${treeNode.id}-${child.id}`;
+            const isOnPath = pathEdges.has(edgeKey);
+            return (
+              <div key={child.id} className="relative">
+                {/* Connection line */}
+                <div className={`
+                  absolute -top-4 left-1/2 w-px h-4 -translate-x-1/2
+                  ${isOnPath ? 'bg-cyan-400 w-0.5' : visitedNodes.includes(child.id) ? 'bg-white/20' : 'bg-white/10'}
+                `} />
+                <TreeNodeComponent
+                  treeNode={child}
+                  visitedNodes={visitedNodes}
+                  currentNodeId={currentNodeId}
+                  onNodeClick={onNodeClick}
+                  pathEdges={pathEdges}
+                />
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
@@ -127,6 +134,15 @@ export function StoryMap({ nodes, isOpen, onClose }: StoryMapProps) {
     dispatch({ type: 'SET_NODE', payload: nodeId });
     onClose();
   };
+
+  // Calculate path edges from history
+  const pathEdges = React.useMemo(() => {
+    const edges = new Set<string>();
+    for (let i = 0; i < state.history.length - 1; i++) {
+      edges.add(`${state.history[i]}-${state.history[i + 1]}`);
+    }
+    return edges;
+  }, [state.history]);
 
   if (!isOpen) return null;
 
@@ -172,6 +188,10 @@ export function StoryMap({ nodes, isOpen, onClose }: StoryMapProps) {
             <span className="w-3 h-3 rounded-full border border-pink-500/50"></span>
             <span className="text-white/60">Ending</span>
           </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-0.5 bg-cyan-400"></span>
+            <span className="text-white/60">Your Path</span>
+          </div>
         </div>
 
         {/* Tree */}
@@ -183,6 +203,7 @@ export function StoryMap({ nodes, isOpen, onClose }: StoryMapProps) {
                 visitedNodes={visitedNodes}
                 currentNodeId={state.currentNodeId}
                 onNodeClick={handleNodeClick}
+                pathEdges={pathEdges}
               />
             </div>
           ) : (
