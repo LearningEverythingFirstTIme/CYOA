@@ -75,45 +75,19 @@ export function calculateTreeLayout(
   const layoutEdges: LayoutEdge[] = [];
   const visited = new Set<string>();
   
-  // Helper to check if a node should be included
-  function shouldIncludeNode(nodeId: string): boolean {
+  // Helper to check if a node matches the filter criteria
+  function matchesFilter(nodeId: string): boolean {
     const node = nodes[nodeId];
     if (!node) return false;
     
     // Branch filter
-    if (branchFilter && node.branch !== branchFilter && nodeId !== 'start') {
-      // Check if any children match the filter (with cycle detection)
-      const hasMatchingDescendant = (id: string, seen: Set<string> = new Set()): boolean => {
-        if (seen.has(id)) return false;
-        seen.add(id);
-        const n = nodes[id];
-        if (!n) return false;
-        if (n.branch === branchFilter) return true;
-        if (n.choices) {
-          return n.choices.some(c => hasMatchingDescendant(c.next, seen));
-        }
-        return false;
-      };
-      
-      if (!hasMatchingDescendant(nodeId)) return false;
+    if (branchFilter && node.branch !== branchFilter) {
+      return false;
     }
     
     // Endings only filter
     if (showEndingsOnly && !node.ending) {
-      // Check if any children are endings (with cycle detection)
-      const hasEndingDescendant = (id: string, seen: Set<string> = new Set()): boolean => {
-        if (seen.has(id)) return false;
-        seen.add(id);
-        const n = nodes[id];
-        if (!n) return false;
-        if (n.ending) return true;
-        if (n.choices) {
-          return n.choices.some(c => hasEndingDescendant(c.next, seen));
-        }
-        return false;
-      };
-      
-      if (!hasEndingDescendant(nodeId)) return false;
+      return false;
     }
     
     // Visited only filter
@@ -122,6 +96,73 @@ export function calculateTreeLayout(
     }
     
     return true;
+  }
+  
+  // Find all nodes that should be included (matching nodes + their ancestors)
+  const nodesToInclude = new Set<string>();
+  
+  // First pass: find all nodes that match the filter
+  function findMatchingNodes(id: string, seen: Set<string> = new Set()) {
+    if (seen.has(id)) return;
+    seen.add(id);
+    
+    const node = nodes[id];
+    if (!node) return;
+    
+    // Check if this node matches all active filters
+    let matches = true;
+    
+    if (branchFilter && node.branch !== branchFilter) {
+      matches = false;
+    }
+    
+    if (showEndingsOnly && !node.ending) {
+      matches = false;
+    }
+    
+    if (showVisitedOnly && !visitedSet.has(id) && id !== 'start') {
+      matches = false;
+    }
+    
+    if (matches) {
+      nodesToInclude.add(id);
+    }
+    
+    // Always traverse children to find more matches
+    if (node.choices) {
+      for (const choice of node.choices) {
+        findMatchingNodes(choice.next, seen);
+      }
+    }
+  }
+  
+  findMatchingNodes(startId);
+  
+  // Second pass: add all ancestors of matching nodes to maintain connectivity
+  function addAncestors(id: string, seen: Set<string> = new Set()) {
+    if (seen.has(id)) return;
+    seen.add(id);
+    
+    // Find all nodes that have this node as a child
+    for (const [parentId, node] of Object.entries(nodes)) {
+      if (node.choices && node.choices.some(c => c.next === id)) {
+        nodesToInclude.add(parentId);
+        addAncestors(parentId, seen);
+      }
+    }
+  }
+  
+  // Add ancestors for all matching nodes
+  Array.from(nodesToInclude).forEach(nodeId => {
+    addAncestors(nodeId);
+  });
+  
+  // Always include start node
+  nodesToInclude.add(startId);
+  
+  // Helper to check if a node should be included (now just checks the set)
+  function shouldIncludeNode(nodeId: string): boolean {
+    return nodesToInclude.has(nodeId);
   }
   
   // First pass: build the tree structure
