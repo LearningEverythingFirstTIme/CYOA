@@ -82,13 +82,15 @@ export function calculateTreeLayout(
     
     // Branch filter
     if (branchFilter && node.branch !== branchFilter && nodeId !== 'start') {
-      // Check if any children match the filter
-      const hasMatchingDescendant = (id: string): boolean => {
+      // Check if any children match the filter (with cycle detection)
+      const hasMatchingDescendant = (id: string, seen: Set<string> = new Set()): boolean => {
+        if (seen.has(id)) return false;
+        seen.add(id);
         const n = nodes[id];
         if (!n) return false;
         if (n.branch === branchFilter) return true;
         if (n.choices) {
-          return n.choices.some(c => hasMatchingDescendant(c.next));
+          return n.choices.some(c => hasMatchingDescendant(c.next, seen));
         }
         return false;
       };
@@ -98,12 +100,15 @@ export function calculateTreeLayout(
     
     // Endings only filter
     if (showEndingsOnly && !node.ending) {
-      const hasEndingDescendant = (id: string): boolean => {
+      // Check if any children are endings (with cycle detection)
+      const hasEndingDescendant = (id: string, seen: Set<string> = new Set()): boolean => {
+        if (seen.has(id)) return false;
+        seen.add(id);
         const n = nodes[id];
         if (!n) return false;
         if (n.ending) return true;
         if (n.choices) {
-          return n.choices.some(c => hasEndingDescendant(c.next));
+          return n.choices.some(c => hasEndingDescendant(c.next, seen));
         }
         return false;
       };
