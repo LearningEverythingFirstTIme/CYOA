@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "The Silence Bureau",
+    "totalNodes": 92,
+    "decisionPoints": 84,
+    "endings": 8,
+    "branches": 5
+  },
+  "branches": {
+    "archives": {
+      "name": "Echo Archives Branch",
+      "startingNode": "archivist_start",
+      "color": "#00f0ff",
+      "keyNodes": ["archivist_start", "archivist_origins", "archivist_bury", "high_curator", "keepers_oath", "memory_merchants"],
+      "npcs": ["The Archivist", "The High Curator"],
+      "themes": ["knowledge", "preservation", "secrets", "oath"]
+    },
+    "debt": {
+      "name": "Debt/Treasury Branch", 
+      "startingNode": "debt_start",
+      "color": "#ff9f1c",
+      "keyNodes": ["debt_start", "treasury_contact", "lower_tiers", "memory_merchants"],
+      "npcs": ["The Debt Collector"],
+      "themes": ["economy", "debt", "class", "corruption"]
+    },
+    "hush": {
+      "name": "Hush Children Branch",
+      "startingNode": "child_start", 
+      "color": "#ffb3d9",
+      "keyNodes": ["child_start", "safehouse_child", "hush_district", "mama_voss"],
+      "npcs": ["The Hush Child", "Mama Voss"],
+      "themes": ["silence", "innocence", "prophecy", "transcendence"]
+    },
+    "cathedral": {
+      "name": "Cathedral Branch",
+      "startingNode": "cathedral_start",
+      "color": "#9d4edd", 
+      "keyNodes": ["cathedral_start", "cathedral_teachings", "demand_leader"],
+      "npcs": ["The Cantor"],
+      "themes": ["religion", "ascension", "fanaticism", "unity"]
+    },
+    "noise": {
+      "name": "White Noise Branch",
+      "startingNode": "white_noise_start",
+      "color": "#ffffff",
+      "keyNodes": ["white_noise_start", "static_garden", "echo_vane"],
+      "npcs": ["Echo Vane"],
+      "themes": ["anarchy", "revolution", "freedom", "chaos"]
+    }
+  },
+  "endings": {
+    "ending_white_noise": {
+      "name": "White Noise",
+      "theme": "Revolution/Sacrifice",
+      "description": "Broadcast the Frequency to destroy the auditory economy"
+    },
+    "ending_static": {
+      "name": "Static", 
+      "theme": "Control/Status Quo",
+      "description": "Hand the Frequency to authorities for containment"
+    },
+    "ending_harmonic": {
+      "name": "Harmonic Resolution",
+      "theme": "Balance/Evolution", 
+      "description": "Reshape the Frequency into something transformative"
+    },
+    "ending_absolute": {
+      "name": "Absolute Zero",
+      "theme": "Transcendence/Self-Destruction",
+      "description": "Merge with the Frequency and become silence itself"
+    },
+    "ending_capital": {
+      "name": "Capital of Silence", 
+      "theme": "Greed/Exploitation",
+      "description": "Sell access to the Frequency and profit from power"
+    },
+    "ending_keeper": {
+      "name": "The Keeper's Burden",
+      "theme": "Duty/Sacrifice",
+      "description": "Dedicate your life to guarding the Frequency"
+    },
+    "ending_children": {
+      "name": "The Children's Hour",
+      "theme": "Hope/Innocence",
+      "description": "Let the Hush Children guide the Frequency"
+    },
+    "ending_refusal": {
+      "name": "The Silent No",
+      "theme": "Defiance/Destruction", 
+      "description": "Destroy the Nexus and refuse all choices"
+    }
+  },
+  "convergencePoints": [
+    "convergence_market",
+    "convergence_archives", 
+    "convergence_conclave",
+    "final_frequency"
+  ]
+}

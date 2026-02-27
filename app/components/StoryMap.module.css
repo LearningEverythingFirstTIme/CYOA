@@ -1,0 +1,886 @@
+.storyMapOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.storyMapContainer {
+  background: #0a0a0f;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 1400px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.1);
+}
+
+.mapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
+}
+
+.mapTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.25rem;
+  color: #00f0ff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.mapSubtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25rem;
+}
+
+.mapControls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.controlButton {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlButton:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+}
+
+.controlButton.active {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: #00f0ff;
+  color: #00f0ff;
+}
+
+.controlButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #ff006e;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.searchBox {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.searchClear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.searchClear:hover {
+  color: #fff;
+}
+
+.searchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 15, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+  max-height: 200px;
+  overflow: auto;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.searchResultItem {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.searchResultItem:hover {
+  background: rgba(0, 240, 255, 0.1);
+  color: #00f0ff;
+}
+
+.searchResultItem:last-child {
+  border-bottom: none;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.filterLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filterSelect {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+  padding: 0.4rem 0.5rem;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #00f0ff;
+}
+
+.filterSelect option {
+  background: #0a0a0f;
+  color: #fff;
+}
+
+.toggleGroup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggleLabel:hover {
+  color: #fff;
+}
+
+.toggleLabel input[type="checkbox"] {
+  accent-color: #00f0ff;
+  cursor: pointer;
+}
+
+.zoomControls {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: auto;
+  align-items: center;
+}
+
+.zoomButton {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.zoomButton:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+}
+
+.zoomLevel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 3.5rem;
+  text-align: center;
+}
+
+.mapContent {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.canvasContainer {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #0a0a0f 0%, #050508 100%);
+}
+
+.svgCanvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.svgCanvas:active {
+  cursor: grabbing;
+}
+
+.svgCanvas.dragging {
+  cursor: grabbing;
+}
+
+/* Node Styles */
+.nodeGroup {
+  cursor: pointer;
+}
+
+.nodeGroup.animated {
+  animation: nodeAppear 0.4s ease backwards;
+}
+
+.nodeRect {
+  transition: all 0.3s ease;
+}
+
+.nodeGroup:hover .nodeRect {
+  filter: drop-shadow(0 0 10px currentColor);
+  transform: scale(1.02);
+}
+
+.nodeText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nodeLabel {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nodeCurrent .nodeRect {
+  animation: nodePulse 2s ease-in-out infinite;
+}
+
+.currentIndicator {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.selectionHighlight {
+  animation: dash 20s linear infinite;
+}
+
+/* Connection Styles */
+.connectionLine {
+  fill: none;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.connectionLine.visited {
+  stroke: #00f0ff;
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 4px #00f0ff);
+}
+
+.connectionLine.path {
+  stroke: #ff006e;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px #ff006e);
+}
+
+.connectionLine.path.animated {
+  stroke-dasharray: 10, 5;
+  animation: dashFlow 1s linear infinite;
+}
+
+.connectionLine.unvisited {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.connectionHitArea {
+  cursor: pointer;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 350px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebarHeader {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+.sidebarTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.875rem;
+  color: #00f0ff;
+  margin: 0;
+}
+
+.sidebarContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.nodeInfo {
+  margin-bottom: 1.25rem;
+}
+
+.nodeInfoLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.nodeInfoValue {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.nodeInfoValue.location {
+  color: #ff9f1c;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nodeInfoValue.content {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.choicesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.choiceItem {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.choiceItem:hover {
+  background: rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.choiceItem.selected {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: #00f0ff;
+}
+
+.choiceText {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.choiceFlavor {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+.choiceDestination {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #00f0ff;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.jumpButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(0, 240, 255, 0.1) 100%);
+  border: 1px solid #00f0ff;
+  border-radius: 0.25rem;
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.jumpButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.4) 0%, rgba(0, 240, 255, 0.2) 100%);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.jumpButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Legend Styles */
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendSymbol {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.legendSymbol.current {
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.legendSymbol.visited {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.legendSymbol.unvisited {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.legendSymbol.ending {
+  background: transparent;
+  border: 2px solid #ff006e;
+  box-shadow: 0 0 8px rgba(255, 0, 110, 0.3);
+}
+
+.legendSymbol.path {
+  background: linear-gradient(90deg, #ff006e, #00f0ff);
+  border: none;
+}
+
+.legendText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Stats Panel */
+.statsPanel {
+  display: flex;
+  gap: 2rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #00f0ff;
+}
+
+.statBar {
+  width: 100px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.statBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #ff006e);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* Minimap */
+.minimap {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 180px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.minimapViewport {
+  fill: rgba(0, 240, 255, 0.15);
+  stroke: #00f0ff;
+  stroke-width: 1;
+}
+
+/* Floating Tooltip */
+.floatingTooltip {
+  position: fixed;
+  background: rgba(10, 10, 15, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 300px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.tooltipTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  color: #00f0ff;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.tooltipContent {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.tooltipContent p {
+  margin: 0.5rem 0 0 0;
+}
+
+.tooltipEnding {
+  display: inline-block;
+  background: rgba(255, 0, 110, 0.2);
+  color: #ff006e;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.tooltipBranch {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  padding: 2rem;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyStateText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.emptyStateHint {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes nodeAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes nodePulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -15;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .storyMapContainer {
+    max-width: none;
+  }
+  
+  .sidebar {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .storyMapOverlay {
+    padding: 0;
+  }
+  
+  .storyMapContainer {
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 10;
+    background: rgba(10, 10, 15, 0.98);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .toolbar {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+  
+  .searchBox {
+    max-width: none;
+    width: 100%;
+    order: -1;
+    flex-basis: 100%;
+  }
+  
+  .filterGroup,
+  .toggleGroup {
+    flex-wrap: wrap;
+  }
+  
+  .legend {
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .legendText {
+    display: none;
+  }
+  
+  .minimap {
+    width: 120px;
+    height: 80px;
+  }
+  
+  .statsPanel {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .statBar {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapHeader {
+    padding: 0.75rem 1rem;
+  }
+  
+  .mapTitle {
+    font-size: 1rem;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .zoomControls {
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+}
