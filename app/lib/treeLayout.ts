@@ -139,23 +139,20 @@ export function calculateTreeLayout(
   findMatchingNodes(startId);
   
   // Second pass: add all ancestors of matching nodes to maintain connectivity
-  function addAncestors(id: string, seen: Set<string> = new Set()) {
-    if (seen.has(id)) return;
-    seen.add(id);
+  // We need to do this iteratively because newly added ancestors may have their own ancestors
+  let previousSize = 0;
+  while (nodesToInclude.size !== previousSize) {
+    previousSize = nodesToInclude.size;
     
-    // Find all nodes that have this node as a child
-    for (const [parentId, node] of Object.entries(nodes)) {
-      if (node.choices && node.choices.some(c => c.next === id)) {
-        nodesToInclude.add(parentId);
-        addAncestors(parentId, seen);
+    for (const nodeId of Array.from(nodesToInclude)) {
+      // Find all nodes that have this node as a child
+      for (const [parentId, node] of Object.entries(nodes)) {
+        if (node.choices && node.choices.some(c => c.next === nodeId)) {
+          nodesToInclude.add(parentId);
+        }
       }
     }
   }
-  
-  // Add ancestors for all matching nodes
-  Array.from(nodesToInclude).forEach(nodeId => {
-    addAncestors(nodeId);
-  });
   
   // Always include start node
   nodesToInclude.add(startId);
